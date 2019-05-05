@@ -42,15 +42,9 @@ dnf_packages:
   - gnomebaker
   - autojump
   - autojump-zsh
+
 rpmfusion_packages:
   - gstreamer1-libav
   - gstreamer1-plugins-good
   - gstreamer1-vaapi
   - vlc
-services:
-  - name: sshd
-    status: running
-    enabled: True
-  - name: docker
-    status: running
-    enabled: True
