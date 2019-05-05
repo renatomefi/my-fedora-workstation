@@ -1,0 +1,55 @@
+---
+# roles/common/tasks/fedora.yml
+
+- include: chrome.yml
+- include: vscode.yml
+- include: insync.yml
+- include: nordvpn.yml
+- include: docker.yml
+  tags:
+    - docker
+
+- name: disable static motd file
+  lineinfile:
+    dest: "/etc/ssh/sshd_config"
+    regexp: "PrintMotd"
+    line: "PrintMotd no"
+  notify:
+    - restart sshd
+
+- name: dynmotd
+  copy:
+    src: dynmotd
+    dest: /usr/local/bin/dynmotd
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Update profile
+  lineinfile:
+    dest: "/etc/profile"
+    insertafter: EOF
+    line: /usr/local/bin/dynmotd
+
+- name: Add rpmfusion free
+  dnf:
+    name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
+    state: present
+
+- name: Add rpmfusion none free
+  dnf:
+    name: "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm"
+    state: present
+
+- name: Install dnf packages
+  dnf: name={{ item }} state=present
+  with_items:
+    - "{{ dnf_packages }}"
+    - "{{ rpmfusion_packages }}"
+  ignore_errors: true
+  tags: pkg
+
+- name: Update and upgrade system
+  dnf: name=* state=latest
+  tags: update
+  ignore_errors: yes

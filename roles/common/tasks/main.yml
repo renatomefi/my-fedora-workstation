@@ -1,0 +1,43 @@
+---
+# roles/common/tasks/main.yml
+
+#- name: Clone my dotfiles
+#  git: repo={{ dotfiles.repo }} dest=/home/{{ ansible_env.USERNAME }}/.dotfiles
+#    recursive=yes accept_hostkey=yes update=yes track_submodules=yes
+#  ignore_errors: yes
+#  become: false
+
+#- name: Set dotfiles ownership
+#  file: path=/home/{{ ansible_env.USERNAME }}/.dotfiles recurse=yes
+#    owner={{ ansible_env.USERNAME }} group={{ ansible_env.USERNAME }}
+
+#- name: Create zprezto symlinks
+#  shell: /home/{{ ansible_env.USERNAME }}/.dotfiles/init/zprezto-install.sh
+#  args:
+#    creates: "{{ ansible_user_dir }}/.dotfiles/src/.zshrc"
+#  ignore_errors: yes
+#  become: false
+
+#- name: Create dotfiles symlinks
+#  shell: /home/{{ ansible_env.USERNAME }}/.dotfiles/init/dotfiles-install.sh
+#  args:
+#    creates: "{{ ansible_user_dir }}/.vimrc"
+#  ignore_errors: yes
+#  become: false
+
+- name: Install pip (if needed)
+  easy_install: name=pip
+
+- name: Install pip3 packages
+  pip: name='{{ pip_packages }}' state=latest executable=pip3
+
+- name: NOPASSWD sudo
+  lineinfile: "dest=/etc/sudoers.d/{{ ansible_env.SUDO_USER }} 
+    create=yes state=present mode=0440
+    owner=root group=root
+    line='{{ ansible_env.USERNAME }} ALL=(ALL) NOPASSWD: ALL'"
+
+- name: Change user shell to zsh
+  user: name={{ ansible_env.USERNAME }} 
+    state=present shell=/usr/bin/zsh 
+

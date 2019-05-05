@@ -1,0 +1,10 @@
+---
+- rpm_key: key=https://packages.microsoft.com/keys/microsoft.asc
+    state=present
+
+- copy: src=microsoft-vscode.repo 
+    dest=/etc/yum.repos.d/vscode.repo
+    owner=root group=root mode=644
+
+- name: Install Visual Studio Code
+  dnf: pkg=code state=installed

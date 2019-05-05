@@ -1,0 +1,6 @@
+#inventory file
+hosts
+
+# temp vim files
+*.swp
+*.retry

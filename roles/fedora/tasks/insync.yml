@@ -1,0 +1,10 @@
+---
+- rpm_key: key=https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key
+    state=present
+
+- copy: src=insync.repo 
+    dest=/etc/yum.repos.d/insync.repo
+    owner=root group=root mode=644
+
+- name: Install insync
+  dnf: pkg=insync state=installed

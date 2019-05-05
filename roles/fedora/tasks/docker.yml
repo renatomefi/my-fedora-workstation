@@ -1,0 +1,28 @@
+---
+- name: Remove Fedora Docker dnf packages
+  dnf: name={{ item }} state=absent
+  with_items:
+    - docker
+    - docker-client
+    - docker-client-latest
+    - docker-common
+    - docker-latest
+    - docker-latest-logrotate
+    - docker-logrotate
+    - docker-selinux
+    - docker-engine-selinux
+    - docker-engine
+
+- rpm_key: key=https://download.docker.com/linux/fedora/gpg
+    state=present
+
+- copy: src=docker-ce.repo 
+    dest=/etc/yum.repos.d/docker-ce.repo
+    owner=root group=root mode=644
+
+- name: Install Docker CE
+  dnf: pkg={{ item }} state=installed
+  with_items:
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io

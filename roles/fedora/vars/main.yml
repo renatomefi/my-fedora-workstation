@@ -1,0 +1,55 @@
+---
+dnf_packages:
+  - ack
+  - ansible
+  - autokey-gtk
+  - curl
+  - dconf-editor
+  - direnv
+  - git
+  - git-extras
+  - glances
+  - golang
+  - gnome-tweak-tool
+  - hddtemp
+  - htop
+  - httpie
+  - iotop
+  - jq
+  - mosh
+  - nautilus-open-terminal
+  - ncdu
+  - openssh-server
+  - pv
+  - python-setuptools
+  - remmina
+  - rootsh
+  - rubygems
+  - system-storage-manager
+  - the_silver_searcher
+  - tmux
+  - tmuxinator
+  - tsocks
+  - tree
+  - weechat
+  - xclip
+  - zsh
+  - terminator
+  - dnf-plugins-core
+  - fuse-sshfs
+  - vim-enhanced
+  - gnomebaker
+  - autojump
+  - autojump-zsh
+rpmfusion_packages:
+  - gstreamer1-libav
+  - gstreamer1-plugins-good
+  - gstreamer1-vaapi
+  - vlc
+services:
+  - name: sshd
+    status: running
+    enabled: True
+  - name: docker
+    status: running
+    enabled: True

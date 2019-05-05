@@ -1,0 +1,13 @@
+---
+- hosts: "{{ host | default('localhost') }}"
+  become: yes
+  become_user: "root"
+  vars_files:
+    - "roles/common/vars/main.yml"
+  roles:
+    - common
+    - { role: fedora, when: "ansible_distribution == 'Fedora'" }
+    - role: gnome
+      tags: ["gnome"]
+      become: yes
+      become_user: "{{ ansible_env.SUDO_USER }}"

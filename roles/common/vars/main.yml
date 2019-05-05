@@ -1,0 +1,14 @@
+---
+pip_packages:
+  - beets
+  - virtualenv
+  - ps_mem
+  - cheat
+  - yq
+
+ansible_python_interpreter: "/usr/bin/python3"
+
+dotfiles: {
+  "repo": "https://github.com/renatomefi/dotfiles.git",
+  "host": "www.github.com",
+}

@@ -1,0 +1,34 @@
+---
+- name: Install openvpn packages
+  dnf: name={{ item }} state=present
+  with_items:
+    - openvpn
+    - NetworkManager-openvpn
+    - NetworkManager-openvpn-gnome
+    - ca-certificates
+  tags: pkg
+
+- name: Creates /opt/nordvpn directory
+  file:
+    path: /opt/nordvpn
+    state: directory
+    owner: '{{ ansible_env.USERNAME }}'
+    group: '{{ ansible_env.USERNAME }}'
+    mode: 0775
+
+- name: Install NordVPN ovpn
+  unarchive:
+    src: https://downloads.nordcdn.com/configs/archives/servers/ovpn.zip
+    remote_src: yes
+    dest: /opt/nordvpn
+    owner: '{{ ansible_env.USERNAME }}'
+    group: '{{ ansible_env.USERNAME }}'
+
+- name: Update /opt/nordvpn directory permissions
+  file:
+    path: /opt/nordvpn
+    state: directory
+    owner: '{{ ansible_env.USERNAME }}'
+    group: '{{ ansible_env.USERNAME }}'
+    recurse: yes
+    mode: 0775
