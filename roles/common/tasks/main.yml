@@ -40,4 +40,3 @@
 - name: Change user shell to zsh
   user: name={{ ansible_env.USERNAME }} 
     state=present shell=/usr/bin/zsh 
-

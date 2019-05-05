@@ -26,3 +26,28 @@
     - docker-ce
     - docker-ce-cli
     - containerd.io
+
+- group: name=docker system=yes
+
+- user: name=docker group=docker create_home=no
+
+- name: Append group docker to "{{ ansible_env.SUDO_USER }}"
+  user: 
+    name: "{{ ansible_env.SUDO_USER }}"
+    groups: docker
+    append: yes
+
+- name: Start Docker CE
+  systemd: 
+    name: docker.service
+    enabled: yes
+    daemon_reload: yes
+    state: started
+
+- name: Install Docker Compose
+  get_url:
+      dest: /usr/local/bin/docker-compose
+      url: "https://github.com/docker/compose/releases/download/{{ docker_compose.version }}/docker-compose-Linux-x86_64"
+      force: yes
+      sha256sum: "{{ docker_compose.sha256sum }}"
+      mode: u+x
