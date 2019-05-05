@@ -6,7 +6,7 @@
     - "roles/common/vars/main.yml"
   roles:
     - common
-    - { role: fedora, when: "ansible_distribution == 'Fedora'" }
+    - role: fedora
     - role: gnome
       tags: ["gnome"]
       become: yes
