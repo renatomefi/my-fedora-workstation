@@ -1,11 +1,12 @@
 ---
 - name: Install openvpn packages
-  dnf: name={{ item }} state=present
-  with_items:
-    - openvpn
-    - NetworkManager-openvpn
-    - NetworkManager-openvpn-gnome
-    - ca-certificates
+  dnf:
+    state: installed
+    name:
+      - openvpn
+      - NetworkManager-openvpn
+      - NetworkManager-openvpn-gnome
+      - ca-certificates
   tags: pkg
 
 - name: Creates /opt/nordvpn directory
@@ -21,6 +22,7 @@
     src: https://downloads.nordcdn.com/configs/archives/servers/ovpn.zip
     remote_src: yes
     dest: /opt/nordvpn
+    creates: /opt/nordvpn
     owner: '{{ ansible_env.USERNAME }}'
     group: '{{ ansible_env.USERNAME }}'
 

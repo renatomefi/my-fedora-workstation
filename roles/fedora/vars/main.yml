@@ -5,6 +5,7 @@ dnf_packages:
   - autokey-gtk
   - curl
   - dconf-editor
+  - dbus-x11
   - direnv
   - git
   - git-extras

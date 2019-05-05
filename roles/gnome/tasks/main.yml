@@ -2,8 +2,13 @@
 # roles/common/tasks/main.yml
 # requires gsettings module
 
-# - name: Change dconf settings
-#   dconf: key={{ item.value.key }}
-#     value={{ item.value.value }}
-#   with_dict: "{{ gsettings }}"
-#   ignore_errors: true
+- name: Add custom shorcuts
+  dconf: key={{ item.key }} value={{ item.value }}
+  with_items: 
+    - "{{ shortcuts }}"
+
+- name: Change dconf settings
+  dconf: key={{ item.value.key }}
+    value={{ item.value.value }}
+  with_dict: 
+    - "{{ gsettings }}"
