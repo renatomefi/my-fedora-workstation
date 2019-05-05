@@ -42,6 +42,7 @@ dnf_packages:
   - gnomebaker
   - autojump
   - autojump-zsh
+  - torbrowser-launcher
 
 rpmfusion_packages:
   - gstreamer1-libav

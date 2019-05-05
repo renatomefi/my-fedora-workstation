@@ -1,0 +1,10 @@
+---
+- rpm_key: key=https://negativo17.org/repos/RPM-GPG-KEY-slaanesh
+    state=present
+
+- copy: src=spotify.repo 
+    dest=/etc/yum.repos.d/spotify.repo
+    owner=root group=root mode=644
+
+- name: Install spotify
+  dnf: pkg=spotify-client state=installed
