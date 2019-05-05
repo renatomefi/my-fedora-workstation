@@ -1,0 +1,29 @@
+---
+
+- name: Creates Workspace directory
+  file:
+    path: /home/{{ ansible_env.USERNAME }}/Workspace
+    state: directory
+    owner: '{{ ansible_env.USERNAME }}'
+    group: '{{ ansible_env.USERNAME }}'
+    mode: 0775
+
+- name: Creates Workspace Groups directory
+  file:
+    path: /home/{{ ansible_env.USERNAME }}/Workspace/{{ item }}
+    state: directory
+    owner: '{{ ansible_env.USERNAME }}'
+    group: '{{ ansible_env.USERNAME }}'
+    mode: 0775
+  with_items:
+    - "{{ worspace_dirs }}"
+
+- name: Clone favorite Open Source projects
+  git:
+    repo: "{{ item.repo }}"
+    dest: "/home/{{ ansible_env.USERNAME }}/Workspace/{{ item.group }}/{{ item.dir }}"
+    remote: upstream
+    clone: yes
+    update: no
+  with_items:
+    - "{{ worspace_repos }}"
