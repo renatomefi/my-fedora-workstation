@@ -5,6 +5,7 @@ pip_packages:
   - ps_mem
   - cheat
   - yq
+  - awscli
 
 worspace_dirs:
   - kafka

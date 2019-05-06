@@ -1,0 +1,49 @@
+---
+- name: Install standard dot symlink "{{ item }}"
+  file:
+    path: /home/{{ ansible_env.SUDO_USER }}/.{{ item }}
+    src:  /home/{{ ansible_env.SUDO_USER }}/Workstation/dotfiles/{{ item }}
+    force: yes
+    owner: "{{ ansible_env.SUDO_USER }}"
+    group: "{{ ansible_env.SUDO_USER }}"
+    state: link
+    follow: yes
+  with_items:
+    - mitmproxy
+    - vimrc
+    - vpn
+    - zshrc
+    - oh-my-zsh
+    - oh-my-zsh-custom
+    - gnupg
+    - gitconfig
+    - gitignore_global
+    - bashrc
+    - bash_profile
+    - aws
+    - kube
+    - ssh
+    - profile
+    - htop
+    - cert
+
+- name: Install non dot symlink "{{ item }}"
+  file:
+    path: /home/{{ ansible_env.SUDO_USER }}/{{ item }}
+    src:  /home/{{ ansible_env.SUDO_USER }}/Workstation/dotfiles/{{ item }}
+    force: yes
+    owner: "{{ ansible_env.SUDO_USER }}"
+    group: "{{ ansible_env.SUDO_USER }}"
+    state: link
+    follow: yes
+  with_items:
+    - htop
+    - curl-format
+
+- name: Set correct ssh keys permissions
+  file: 
+    path: /home/{{ ansible_env.SUDO_USER }}/Workstation/dotfiles/ssh
+    mode: 0700
+    owner: "{{ ansible_env.SUDO_USER }}"
+    group: "{{ ansible_env.SUDO_USER }}"
+    recurse: yes
