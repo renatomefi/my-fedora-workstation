@@ -31,7 +31,7 @@
 
 - group: name=docker system=yes
 
-- user: name=docker group=docker create_home=no
+- user: name=docker group=docker create_home=no system=yes shell=/sbin/nologin
 
 - name: Append group docker to "{{ ansible_env.SUDO_USER }}"
   user: 
