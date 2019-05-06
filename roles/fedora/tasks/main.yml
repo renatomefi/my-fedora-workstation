@@ -2,15 +2,37 @@
 # roles/common/tasks/fedora.yml
 
 - include: chrome.yml
+  tags:
+    - third-party
+    - chrome
 - include: vscode.yml
+  tags:
+    - third-party
+    - vscode
 - include: insync.yml
+  tags:
+    - third-party
+    - insync
 - include: nordvpn.yml
+  tags:
+    - third-party
+    - nordvpn
 - include: docker.yml
   tags:
+    - third-party
     - docker
 - include: kubectl.yml
+  tags:
+    - third-party
+    - kubernetes
 - include: slack.yml
+  tags:
+    - third-party
+    - slack
 - include: spotify.yml
+  tags:
+    - third-party
+    - spotify
 
 - name: disable static motd file
   lineinfile:
@@ -48,17 +70,14 @@
   dnf:
     name: "{{ dnf_packages }}"
     state: installed
-  ignore_errors: true
   tags: pkg
 
 - name: Install rpmfusion packages
   dnf:
     name: "{{ rpmfusion_packages }}"
     state: installed
-  ignore_errors: true
   tags: pkg
 
 - name: Update and upgrade system
   dnf: name=* state=latest
   tags: update
-  ignore_errors: yes

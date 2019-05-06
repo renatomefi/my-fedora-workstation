@@ -5,12 +5,14 @@
   vars_files:
     - "roles/common/vars/main.yml"
   roles:
-    - common
+    - role: common
+      tags: ["common"]
     - role: work
       tags: ["work"]
       become: yes
       become_user: "{{ ansible_env.SUDO_USER }}"
     - role: fedora
+      tags: ["fedora"]
     # - role: gnome
     #   tags: ["gnome"]
     #   become: yes
