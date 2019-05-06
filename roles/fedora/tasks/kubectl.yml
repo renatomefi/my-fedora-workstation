@@ -1,0 +1,36 @@
+---
+- name: Remove Fedora Kubectl dnf packages
+  dnf:
+    state: absent
+    name:
+      - kubernetes-client
+
+- rpm_key: key=https://packages.cloud.google.com/yum/doc/yum-key.gpg
+    state=present
+
+- rpm_key: key=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+    state=present
+
+- copy: src=kubernetes.repo 
+    dest=/etc/yum.repos.d/kubernetes.repo
+    owner=root group=root mode=644
+
+- name: Install Kubectl
+  dnf:
+    state: installed
+    name:
+      - kubectl
+
+- name: Install Kubectx
+  get_url:
+    dest: /usr/local/bin/kubectx
+    url: "https://raw.githubusercontent.com/ahmetb/kubectx/{{ kubectx.version }}/kubectx"
+    force: yes
+    mode: a+x
+
+- name: Install Kubens
+  get_url:
+    dest: /usr/local/bin/kubens
+    url: "https://raw.githubusercontent.com/ahmetb/kubectx/{{ kubectx.version }}/kubens"
+    force: yes
+    mode: a+x

@@ -6,10 +6,11 @@
 - include: insync.yml
 - include: nordvpn.yml
 - include: docker.yml
-- include: slack.yml
-- include: spotify.yml
   tags:
     - docker
+- include: kubectl.yml
+- include: slack.yml
+- include: spotify.yml
 
 - name: disable static motd file
   lineinfile:
