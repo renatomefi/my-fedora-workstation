@@ -40,6 +40,25 @@
     - htop
     - curl-format
 
+- name: Install config dot symlink "{{ item }}"
+  file:
+    path: /home/{{ ansible_env.SUDO_USER }}/.config/{{ item }}
+    src:  /home/{{ ansible_env.SUDO_USER }}/Workstation/dotfiles/config/{{ item }}
+    force: yes
+    owner: "{{ ansible_env.SUDO_USER }}"
+    group: "{{ ansible_env.SUDO_USER }}"
+    state: link
+    follow: yes
+  with_items:
+    - terminator
+    - spotify
+    - Slack
+    - Postman
+    - 3T
+    - composer
+    - filezilla
+    - git
+
 - name: Set correct ssh keys permissions
   file: 
     path: /home/{{ ansible_env.SUDO_USER }}/Workstation/dotfiles/ssh
