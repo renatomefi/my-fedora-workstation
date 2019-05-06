@@ -25,6 +25,11 @@
 #  ignore_errors: yes
 #  become: false
 
+- include: dotfiles.yml
+  tags: ["dotfiles"]
+  become: yes
+  become_user: "{{ ansible_env.SUDO_USER }}"
+
 - name: Install pip (if needed)
   easy_install: name=pip
 
