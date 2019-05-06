@@ -34,3 +34,23 @@
     url: "https://raw.githubusercontent.com/ahmetb/kubectx/{{ kubectx.version }}/kubens"
     force: yes
     mode: a+x
+
+- name: Creates "/opt/helm/{{ helm.version }}" directory
+  file:
+    path: "/opt/helm/{{ helm.version }}"
+    state: directory
+    mode: 0775
+
+- name: Install Helm CLI
+  unarchive:
+    src: https://storage.googleapis.com/kubernetes-helm/helm-{{ helm.version }}-linux-amd64.tar.gz
+    remote_src: yes
+    dest: "/opt/helm/{{ helm.version }}"
+    creates: "/opt/helm/{{ helm.version }}/linux-amd64"
+
+- name: Copy Helm CLI
+  copy:
+    dest: /usr/local/bin
+    src: "/opt/helm/{{ helm.version }}/linux-amd64/helm"
+    force: yes
+    mode: a+x
