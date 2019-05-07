@@ -7,6 +7,10 @@ It's very opinionated to my usage, but do what you want!
 
 Fedora 30
 
+### Before running
+
+Install Nvidia drivers: https://fedoramagazine.org/install-nvidia-gpu/ and https://rpmfusion.org/Howto/NVIDIA (Also check Wayland section)
+
 ### Usage
 
 `ansible-playbook -i hosts.template -K main.yml`

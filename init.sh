@@ -17,3 +17,8 @@ test -d ~/Workstation/my-fedora-workstation \
 
 cd ~/Workstation/my-fedora-workstation \
     && ansible-playbook -i ./hosts.dist -K ./main.yml
+
+# Let's put the repos remote back to git scp style, https will keep 
+# asking for Auth  but now everything should just work!
+(cd ~/Workstation/my-fedora-workstation && git remote set-url origin git@github.com:${USER}/my-fedora-workstation.git)
+(cd ~/Workstation/dotfiles && git remote set-url origin git@github.com:${USER}/dotfiles.git)
