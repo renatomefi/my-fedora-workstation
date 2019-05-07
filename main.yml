@@ -13,7 +13,7 @@
       become_user: "{{ ansible_env.SUDO_USER }}"
     - role: fedora
       tags: ["fedora"]
-    # - role: gnome
-    #   tags: ["gnome"]
-    #   become: yes
-    #   become_user: "{{ ansible_env.SUDO_USER }}"
+    - role: gnome
+      tags: ["gnome"]
+      # become: yes
+      # become_user: "{{ ansible_env.SUDO_USER }}"

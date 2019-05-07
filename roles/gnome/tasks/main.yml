@@ -1,14 +1,27 @@
 ---
-# roles/common/tasks/main.yml
-# requires gsettings module
+- name: Remove unwanted extensions
+  dnf:
+    state: installed
+    name:
+      - gnome-shell-extension-topicons-plus
+      - gnome-shell-extension-background-logo
 
-- name: Add custom shorcuts
-  dconf: key={{ item.key }} value={{ item.value }}
-  with_items: 
-    - "{{ shortcuts }}"
+- name: Install extensions
+  dnf:
+    state: installed
+    name:
+      - gnome-shell-extension-no-topleft-hot-corner
+      - gnome-shell-extension-topicons-plus
+      - gnome-shell-extension-user-theme
+      - gnome-shell-extension-places-menu
 
-- name: Change dconf settings
-  dconf: key={{ item.value.key }}
-    value={{ item.value.value }}
-  with_dict: 
-    - "{{ gsettings }}"
+# - name: Add custom shorcuts
+#   dconf: key={{ item.key }} value={{ item.value }}
+#   with_items: 
+#     - "{{ shortcuts }}"
+
+# - name: Change dconf settings
+#   dconf: key={{ item.value.key }}
+#     value={{ item.value.value }}
+#   with_dict: 
+#     - "{{ gsettings }}"
