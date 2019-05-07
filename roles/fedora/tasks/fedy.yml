@@ -1,0 +1,13 @@
+---
+- name: Clone Fedy
+  git:
+    repo: "git@github.com:fedy/fedy.git"
+    dest: "/home/{{ ansible_env.USERNAME }}/Workstation/fedy"
+    remote: upstream
+    clone: yes
+    update: no
+  become: yes
+  become_user: "{{ ansible_env.SUDO_USER }}"
+
+- name: Install Jetbrains Toolbox
+  command: "sh /home/{{ ansible_env.USERNAME }}/Workstation/fedy/plugins/jetbrains-toolbox.plugin/install.sh"
