@@ -18,3 +18,13 @@
   command: "sh /home/{{ ansible_env.USERNAME }}/Workstation/fedy/plugins/postman.plugin/install.sh"
   args:
     creates: /opt/Postman
+
+- name: Disable mouse acceleration
+  command: "sh /home/{{ ansible_env.USERNAME }}/Workstation/fedy/plugins/mouse.plugin/setup.sh"
+  args:
+    creates: /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
+
+- name: Install Microsoft TrueType fonts
+  command: "sh /home/{{ ansible_env.USERNAME }}/Workstation/fedy/plugins/msttcorefonts.plugin/install.sh"
+  args:
+    creates: /var/cache/fedy/mscorefonts

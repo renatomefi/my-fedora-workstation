@@ -15,6 +15,30 @@
       - gnome-shell-extension-user-theme
       - gnome-shell-extension-places-menu
 
+- name: Enable Fedora Copr for user501254/Arc
+  command: "dnf copr enable -y user501254/Arc"
+  args:
+    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:user501254:Arc.repo
+
+- name: Install theme packages
+  dnf:
+    state: installed
+    name:
+      - arc-icon-theme
+      - arc-theme-solid
+
+- name: Configure theme
+  command: "gsettings set org.gnome.desktop.interface {{ item.key }} {{ item.value }}"
+  with_items:
+    - { key: 'gtk-theme', value: 'Arc-Dark' }
+    - { key: 'icon-theme', value: 'Arc' }
+
+- name: Configure font
+  command: "gsettings set org.gnome.settings-daemon.plugins.xsettings {{ item.key }} {{ item.value }}"
+  with_items:
+    - { key: 'antialiasing', value: 'rgba' }
+    - { key: 'hinting', value: 'slight' }
+
 # - name: Add custom shorcuts
 #   dconf: key={{ item.key }} value={{ item.value }}
 #   with_items: 
