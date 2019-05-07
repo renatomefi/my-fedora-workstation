@@ -1,41 +1,48 @@
 ---
-# roles/common/tasks/fedora.yml
-
 - include: system.yml
   tags:
     - system
+
 - include: fedy.yml
   tags:
     - third-party
     - fedy
+
 - include: chrome.yml
   tags:
     - third-party
     - chrome
+
 - include: vscode.yml
   tags:
     - third-party
     - vscode
+
 - include: insync.yml
   tags:
     - third-party
     - insync
+
 - include: nordvpn.yml
   tags:
     - third-party
     - nordvpn
+
 - include: docker.yml
   tags:
     - third-party
     - docker
+
 - include: kubectl.yml
   tags:
     - third-party
     - kubernetes
+
 - include: slack.yml
   tags:
     - third-party
     - slack
+
 - include: spotify.yml
   tags:
     - third-party

@@ -11,3 +11,10 @@
 
 - name: Install Jetbrains Toolbox
   command: "sh /home/{{ ansible_env.USERNAME }}/Workstation/fedy/plugins/jetbrains-toolbox.plugin/install.sh"
+  args:
+    creates: /opt/jetbrains-toolbox/
+
+- name: Install Postman
+  command: "sh /home/{{ ansible_env.USERNAME }}/Workstation/fedy/plugins/postman.plugin/install.sh"
+  args:
+    creates: /opt/Postman
