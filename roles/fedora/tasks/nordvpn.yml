@@ -22,13 +22,13 @@
     src: https://downloads.nordcdn.com/configs/archives/servers/ovpn.zip
     remote_src: yes
     dest: /opt/nordvpn
-    creates: /opt/nordvpn
+    creates: /opt/nordvpn/ovpn_udp
     owner: '{{ ansible_env.USERNAME }}'
     group: '{{ ansible_env.USERNAME }}'
 
 - name: Update /opt/nordvpn directory permissions
   file:
-    path: /opt/nordvpn
+    path: /opt/nordvpn/
     state: directory
     owner: '{{ ansible_env.USERNAME }}'
     group: '{{ ansible_env.USERNAME }}'
