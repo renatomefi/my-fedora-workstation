@@ -19,8 +19,11 @@ USER=`whoami`
 HOSTNAME=`uname -n`
 ROOT=`df -Ph | grep root | awk '{print $4}' | tr -d '\n'`
 HOME=`df -Ph | grep home | awk '{print $4}' | tr -d '\n'`
+if [ -z "$HOME" ]
+then    HOME="n/a"
+fi
 
-MEMORY1=`free -t -m | grep "buffers/cache" | awk '{print $3" MB";}'`
+MEMORY1=`free -t -m | grep "Mem" | awk '{print $6" MB";}'`
 MEMORY2=`free -t -m | grep "Mem" | awk '{print $2" MB";}'`
 PSA=`ps -Afl | wc -l`
 
