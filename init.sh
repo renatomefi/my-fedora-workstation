@@ -15,8 +15,5 @@ test -d ~/Workstation/dotfiles \
 test -d ~/Workstation/my-fedora-workstation \
     || git clone "https://${USER}:${TOKEN}@github.com/${USER}/my-fedora-workstation.git" ~/Workstation/my-fedora-workstation
 
-# If .ssh doesn't exist yet, copy it from the dotfiles so we have future permissions to clone projects
-test -d ~/.ssh || cp -R ~/Workstation/dotfiles/ssh ~/.ssh
-
 cd ~/Workstation/my-fedora-workstation \
     && ansible-playbook -i ./hosts.dist -K ./main.yml
