@@ -4,12 +4,10 @@
 - include: system.yml
   tags:
     - system
-
 - include: fedy.yml
   tags:
     - third-party
     - fedy
-
 - include: chrome.yml
   tags:
     - third-party
@@ -42,3 +40,11 @@
   tags:
     - third-party
     - spotify
+
+- name: Install Zoom
+  dnf:
+    name: https://zoom.us/client/latest/zoom_x86_64.rpm 
+    state: present
+  tags:
+    - third-party
+    - zoom
