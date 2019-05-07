@@ -35,6 +35,26 @@
     force: yes
     mode: a+x
 
+- name: Creates "/opt/kail/{{ kail.version }}" directory
+  file:
+    path: "/opt/kail/{{ kail.version }}"
+    state: directory
+    mode: 0775
+
+- name: Install Kail
+  unarchive:
+    src: https://github.com/boz/kail/releases/download/v{{ kail.version }}/kail_{{ kail.version }}_linux_amd64.tar.gz
+    remote_src: yes
+    dest: "/opt/kail/{{ kail.version }}"
+    creates: "/opt/kail/{{ kail.version }}/linux-amd64"
+
+- name: Copy Kail
+  copy:
+    dest: /usr/local/bin
+    src: "/opt/kail/{{ kail.version }}/kail"
+    force: yes
+    mode: a+x
+
 - name: Creates "/opt/helm/{{ helm.version }}" directory
   file:
     path: "/opt/helm/{{ helm.version }}"
