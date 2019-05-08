@@ -33,7 +33,7 @@
     - third-party
     - docker
 
-- include: kubectl.yml
+- include: kubernetes.yml
   tags:
     - third-party
     - kubernetes
