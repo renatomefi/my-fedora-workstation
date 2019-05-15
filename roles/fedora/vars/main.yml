@@ -43,6 +43,10 @@ dnf_packages:
   - autojump
   - autojump-zsh
   - torbrowser-launcher
+  - java-11-openjdk
+  - java-11-openjdk-devel
+  - java-latest-openjdk
+  - java-latest-openjdk-devel
 
 rpmfusion_packages:
   - gstreamer1-libav
