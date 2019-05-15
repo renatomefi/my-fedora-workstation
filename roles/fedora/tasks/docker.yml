@@ -52,4 +52,4 @@
     url: "https://github.com/docker/compose/releases/download/{{ docker_compose.version }}/docker-compose-Linux-x86_64"
     force: yes
     sha256sum: "{{ docker_compose.sha256sum }}"
-    mode: u+x
+    mode: a+x
