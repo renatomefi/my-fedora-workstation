@@ -1,0 +1,47 @@
+---
+- name: Install composer
+  get_url:
+    dest: /usr/local/bin/composer
+    url: "https://getcomposer.org/download/{{ composer.version }}/composer.phar"
+    sha256sum: "{{ composer.sha256sum }}"
+    force: yes
+    mode: a+x
+
+- name: Install Remi repo
+  dnf:
+    name: "http://rpms.remirepo.net/fedora/remi-release-{{ ansible_distribution_major_version }}.rpm"
+    state: present
+
+- name: Enable Remi repo
+  command: "dnf config-manager --set-enabled remi"
+  args:
+    creates: /etc/yum.repos.d/remi.repo
+
+- name: Install PHP
+  dnf:
+    state: present
+    name:
+      - php73
+      - php73-mbstring
+      - php73-php-xml
+      - php73-php-cli
+      - php73-php-pdo
+      - php73-php-json
+      - php73-php-intl
+      - php73-php-pecl-apcu
+      - php73-php-pecl-yaml
+      - php73-php-pecl-xdebug
+      - php73-php-pecl-rdkafka
+      - php73-php-pecl-imagick
+      - php72
+      - php72-mbstring
+      - php72-php-xml
+      - php72-php-cli
+      - php72-php-pdo
+      - php72-php-json
+      - php72-php-intl
+      - php72-php-pecl-apcu
+      - php72-php-pecl-yaml
+      - php72-php-pecl-xdebug
+      - php72-php-pecl-rdkafka
+      - php72-php-pecl-imagick
