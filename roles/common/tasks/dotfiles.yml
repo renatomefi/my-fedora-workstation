@@ -65,3 +65,16 @@
     owner: "{{ ansible_env.SUDO_USER }}"
     group: "{{ ansible_env.SUDO_USER }}"
     recurse: yes
+
+- name: Google Drive directory exists
+  shell: test -d /home/{{ ansible_env.SUDO_USER }}/Drive && echo "true" || echo "false"
+  register: google_drive_exists
+
+- name: Remove empty home directories and symlink from Google Drive when they exist
+  shell: (rmdir /home/{{ ansible_env.SUDO_USER }}/{{ item }} || true) && (test -L /home/{{ ansible_env.SUDO_USER }}/{{ item }} || ln -s /home/{{ ansible_env.SUDO_USER }}/Drive/{{ item }} /home/{{ ansible_env.SUDO_USER }}/{{ item }})
+  when: google_drive_exists.stdout == "true"
+  with_items:
+    - Pictures
+    - Documents
+    - Public
+    - Videos
