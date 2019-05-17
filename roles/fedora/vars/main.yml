@@ -12,6 +12,12 @@ dnf_packages:
   - glances
   - golang
   - gnome-tweak-tool
+  - meld
+  - inkspace
+  - gimp
+  - transmission
+  - wireshark
+  - wireshark-cli
   - hddtemp
   - htop
   - httpie

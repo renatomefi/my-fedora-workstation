@@ -5,9 +5,10 @@ gsettings:
   - "org.gnome.desktop.interface gtk-theme 'Arc-Dark'"
   - "org.gnome.desktop.interface icon-theme 'Arc'"
   - "org.gnome.shell.extensions.user-theme name 'Arc-Dark'"
-  # aliasing
+  # Font/aliasing
   - "org.gnome.settings-daemon.plugins.xsettings antialiasing 'grayscale'"
   - "org.gnome.settings-daemon.plugins.xsettings hinting 'slight'"
+  - "org.gnome.desktop.interface monospace-font-name 'Source Code Pro Medium 10'"
   # top menu
   - "org.gnome.desktop.interface clock-show-date true"
   - "org.gnome.desktop.interface clock-show-seconds true"
