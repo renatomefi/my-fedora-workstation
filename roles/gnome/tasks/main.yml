@@ -15,6 +15,25 @@
       - gnome-shell-extension-user-theme
       - gnome-shell-extension-places-menu
 
+- name: Enable extensions
+  shell: gnome-shell-extension-tool -e {{ item }} || true
+  with_items:
+    - nohotcorner@azuri.free.fr
+    - user-theme@gnome-shell-extensions.gcampax.github.com
+    - TopIcons@phocean.net
+    - places-menu@gnome-shell-extensions.gcampax.github.com
+  become: yes
+  become_user: "{{ ansible_env.SUDO_USER }}"
+
+- name: Disable extensions
+  shell: gnome-shell-extension-tool -d {{ item }}  || true
+  with_items:
+    - background-logo@fedorahosted.org
+    - launch-new-instance@gnome-shell-extensions.gcampax.github.com
+    - window-list@gnome-shell-extensions.gcampax.github.com
+  become: yes
+  become_user: "{{ ansible_env.SUDO_USER }}"
+
 - name: Enable Fedora Copr for user501254/Arc
   command: "dnf copr enable -y user501254/Arc"
   args:
