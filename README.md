@@ -72,8 +72,10 @@ $ ansible-playbook -i hosts.dist -K main.yml --tags="dotfiles"
   - Remove unwanted extensions
   - Install wanted extensions
   - Install themes
-  - Tries its best to enable themes
+  - Configure themes
   - Configure font
+  - Configure plugins
+  - Configure gnome in general with gsettings and dconf
 
 ## More
 

@@ -46,25 +46,19 @@
       - arc-icon-theme
       - arc-theme-solid
 
-- name: Configure theme
-  command: "gsettings set org.gnome.desktop.interface {{ item.key }} {{ item.value }}"
+- name: gsettings set {{ item }}
+  command: "gsettings set {{ item }}"
+  become: yes
+  become_user: "{{ ansible_env.SUDO_USER }}"
+  tags: ["gsettings"]
   with_items:
-    - { key: 'gtk-theme', value: 'Arc-Dark' }
-    - { key: 'icon-theme', value: 'Arc' }
+    - "{{ gsettings }}"
 
-- name: Configure font
-  command: "gsettings set org.gnome.settings-daemon.plugins.xsettings {{ item.key }} {{ item.value }}"
-  with_items:
-    - { key: 'antialiasing', value: 'rgba' }
-    - { key: 'hinting', value: 'slight' }
-
-# - name: Add custom shorcuts
-#   dconf: key={{ item.key }} value={{ item.value }}
-#   with_items: 
-#     - "{{ shortcuts }}"
-
-# - name: Change dconf settings
-#   dconf: key={{ item.value.key }}
-#     value={{ item.value.value }}
-#   with_dict: 
-#     - "{{ gsettings }}"
+- name: Load dconf settings from {{ role_path }}/files/
+  shell: "dconf load / < {{ role_path }}/files/{{ item }}"
+  become: yes
+  become_user: "{{ ansible_env.SUDO_USER }}"
+  tags: ["dconf"]
+  with_items: 
+    - gnome.dconf
+    - extensions.dconf

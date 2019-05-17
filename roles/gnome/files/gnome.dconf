@@ -1,0 +1,55 @@
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Primary><Alt>t'
+command='terminator'
+name='Terminal'
+
+[org/gnome/GWeather]
+temperature-unit='centigrade'
+
+[org/gnome/Weather]
+automatic-location=false
+locations=[<(uint32 2, <('Amsterdam', 'EHAM', true, [(0.91280719879303418, 0.083194033496160544)], [(0.91367986341903151, 0.085812027374152042)])>)>]
+
+[org/gnome/desktop/input-sources]
+current=uint32 0
+mru-sources=[('xkb', 'us'), ('xkb', 'us+intl')]
+sources=[('xkb', 'us'), ('xkb', 'us+intl')]
+xkb-options=@as []
+
+[system/locale]
+region='nl_NL.UTF-8'
+
+[org/gnome/gedit/plugins/filebrowser/nautilus]
+click-policy='double'
+confirm-trash=true
+
+[org/gnome/desktop/peripherals/touchpad]
+edge-scrolling-enabled=false
+tap-to-click=true
+two-finger-scrolling-enabled=true
+
+[org/gnome/nautilus/list-view]
+default-visible-columns=['name', 'size', 'owner', 'date_modified', 'starred']
+default-zoom-level='standard'
+use-tree-view=true
+
+[org/gnome/nautilus/preferences]
+confirm-trash=true
+default-folder-viewer='list-view'
+search-filter-time-type='last_modified'
+search-view='list-view'
+thumbnail-limit=uint64 20
+
+[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+custom-command='zsh'
+login-shell=true
+use-custom-command=true
+
+[org/gnome/desktop/calendar]
+show-weekdate=true
+
+[org/gnome/shell]
+favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'code.desktop', 'terminator.desktop', 'google-chrome-beta.desktop', 'slack.desktop']

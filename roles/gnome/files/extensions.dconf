@@ -1,0 +1,12 @@
+[org/gnome/shell/extensions/hidetopbar]
+animation-time-autohide=0.10000000000000001
+animation-time-overview=0.30000000000000004
+enable-active-window=false
+mouse-sensitive=true
+pressure-threshold=80
+pressure-timeout=700
+shortcut-delay=10.0
+
+[org/gnome/shell/extensions/topicons]
+tray-order=1
+tray-pos='right'
