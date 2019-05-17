@@ -18,12 +18,19 @@
   with_items:
     - "{{ worspace_dirs }}"
 
+- name: Include vars
+  include_vars:
+    file: /home/{{ ansible_env.USERNAME }}/workspace_repos.yaml
+    name: workspace_repos_home
+  ignore_errors: yes
+
 - name: Clone favorite Open Source projects
   git:
     repo: "{{ item.repo }}"
     dest: "/home/{{ ansible_env.USERNAME }}/Workspace/{{ item.group }}/{{ item.dir }}"
-    remote: upstream
+    remote: "{{ item.remote | default('upstream') }}"
     clone: yes
     update: no
   with_items:
-    - "{{ worspace_repos }}"
+    - "{{ workspace_repos }}"
+    - "{{ workspace_repos_home.repos | default([]) }}"
