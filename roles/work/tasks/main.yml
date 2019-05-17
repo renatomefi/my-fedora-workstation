@@ -20,7 +20,7 @@
 
 - name: Include vars
   include_vars:
-    file: /home/{{ ansible_env.USERNAME }}/workspace_repos.yaml
+    file: /home/{{ ansible_env.USERNAME }}/.workspace_repos.yaml
     name: workspace_repos_home
   ignore_errors: yes
 

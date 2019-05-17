@@ -13,14 +13,16 @@
     state: present
 
 - name: Enable Remi repo
-  command: "dnf config-manager --set-enabled remi"
+  command: dnf config-manager --set-enabled remi
+  args:
+    warn: no
 
 - name: Install PHP
   dnf:
     state: present
     name:
       - php73
-      - php73-mbstring
+      - php73-php-mbstring
       - php73-php-xml
       - php73-php-cli
       - php73-php-pdo
@@ -32,7 +34,7 @@
       - php73-php-pecl-rdkafka
       - php73-php-pecl-imagick
       - php72
-      - php72-mbstring
+      - php72-php-mbstring
       - php72-php-xml
       - php72-php-cli
       - php72-php-pdo
