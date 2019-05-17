@@ -21,7 +21,7 @@ $ ansible-playbook -i hosts.template -K main.yml
 All the bold words are also tags, you can run them isolated via:
 
 ```console
-$ ansible-playbook -i hosts.template -K main.yml --tags="dotfiles"
+$ ansible-playbook -i hosts.dist -K main.yml --tags="dotfiles"
 ```
 
 - **common**
