@@ -14,8 +14,6 @@
 
 - name: Enable Remi repo
   command: "dnf config-manager --set-enabled remi"
-  args:
-    creates: /etc/yum.repos.d/remi.repo
 
 - name: Install PHP
   dnf:
