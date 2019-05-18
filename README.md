@@ -13,7 +13,7 @@ Install Nvidia drivers: https://fedoramagazine.org/install-nvidia-gpu/ and https
 ## Usage
 
 ```console
-$ ansible-playbook -i hosts.template -K main.yml
+$ ansible-playbook -i hosts.dist -K main.yml
 ```
 
 ## Included playbooks

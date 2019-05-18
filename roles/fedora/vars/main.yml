@@ -13,7 +13,7 @@ dnf_packages:
   - golang
   - gnome-tweak-tool
   - meld
-  - inkspace
+  - inkscape
   - gimp
   - transmission
   - wireshark

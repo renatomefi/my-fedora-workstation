@@ -38,6 +38,7 @@
   command: "dnf copr enable -y user501254/Arc"
   args:
     creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:user501254:Arc.repo
+    warn: false
 
 - name: Install theme packages
   dnf:
