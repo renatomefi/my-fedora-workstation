@@ -28,5 +28,6 @@
     - streetsidesoftware.code-spell-checker
     - timonwong.shellcheck
     - vscoss.vscode-ansible
+    - Shan.code-settings-sync
   become: yes
   become_user: "{{ ansible_env.SUDO_USER }}"
