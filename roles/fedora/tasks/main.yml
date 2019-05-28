@@ -59,3 +59,8 @@
   tags:
     - third-party
     - zoom
+
+- include: kafka.yml
+  tags:
+    - third-party
+    - kafka
