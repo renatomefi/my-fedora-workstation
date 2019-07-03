@@ -22,6 +22,8 @@
     state: present
     name:
       - php73
+      - php73-runtime
+      - php73-syspaths
       - php73-php-mbstring
       - php73-php-xml
       - php73-php-cli
@@ -33,6 +35,7 @@
       - php73-php-pecl-xdebug
       - php73-php-pecl-rdkafka
       - php73-php-pecl-imagick
+      - php73-php-pecl-rdkafka
       - php72
       - php72-php-mbstring
       - php72-php-xml
