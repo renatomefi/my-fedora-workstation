@@ -1,0 +1,50 @@
+---
+- name: Creates "/opt/terraform" directories
+  file:
+    path: "/opt/terraform/{{ item }}"
+    state: directory
+    mode: 0775
+    owner: '{{ ansible_env.USERNAME }}'
+    group: '{{ ansible_env.USERNAME }}'
+  with_items:
+    - download
+    - bin
+    - "0.11"
+    - "0.12"
+
+- name: Install Terraform 0.11
+  unarchive:
+    src: https://releases.hashicorp.com/terraform/0.11.14/terraform_0.11.14_linux_amd64.zip
+    remote_src: yes
+    dest: /opt/terraform/0.11/
+    owner: '{{ ansible_env.USERNAME }}'
+    group: '{{ ansible_env.USERNAME }}'
+
+- name: Install Terraform 0.12
+  unarchive:
+    src: https://releases.hashicorp.com/terraform/0.12.3/terraform_0.12.3_linux_amd64.zip
+    remote_src: yes
+    dest: /opt/terraform/0.12/
+    creates: /opt/terraform/bin/terraform
+    owner: '{{ ansible_env.USERNAME }}'
+    group: '{{ ansible_env.USERNAME }}'
+
+- name: Install Terraform 0.11 symlinks"
+  file:
+    path: /opt/terraform/bin/terraform-0.11
+    src: /opt/terraform/0.11/terraform
+    force: yes
+    owner: "{{ ansible_env.SUDO_USER }}"
+    group: "{{ ansible_env.SUDO_USER }}"
+    state: link
+    follow: yes
+
+- name: Install Terraform 0.12 symlinks"
+  file:
+    path: /opt/terraform/bin/terraform
+    src: /opt/terraform/0.12/terraform
+    force: yes
+    owner: "{{ ansible_env.SUDO_USER }}"
+    group: "{{ ansible_env.SUDO_USER }}"
+    state: link
+    follow: yes

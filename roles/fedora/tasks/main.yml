@@ -64,3 +64,8 @@
   tags:
     - third-party
     - kafka
+
+- include: terraform.yml
+  tags:
+    - third-party
+    - terraform
