@@ -35,6 +35,13 @@
     force: yes
     mode: a+x
 
+- name: Install  Minikube
+  get_url:
+    dest: /usr/local/bin/minikube
+    url: "https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64"
+    force: yes
+    mode: a+x
+
 - name: Creates "/opt/kail/{{ kail.version }}" directory
   file:
     path: "/opt/kail/{{ kail.version }}"
