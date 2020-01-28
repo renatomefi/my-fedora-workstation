@@ -48,6 +48,6 @@ workspace_repos:
   - { group: 'kafka', dir: 'cp-docker-images', repo: 'git@github.com:confluentinc/cp-docker-images.git' }
   - { group: 'kafka', dir: 'cp-helm-charts', repo: 'git@github.com:confluentinc/cp-helm-charts.git' }
   - { group: 'kafka', dir: 'kafka-rest', repo: 'git@github.com:confluentinc/kafka-rest.git' }
-  - { group: 'fedora', dir: 'fedy', repo: 'git@github.com:fedy/fedy.git' }
+  - { group: 'fedora', dir: 'fedy', repo: 'git@github.com:rpmfusion-infra/fedy.git' }
 
 ansible_python_interpreter: "/usr/bin/python3"

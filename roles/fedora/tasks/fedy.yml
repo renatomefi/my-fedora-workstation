@@ -1,7 +1,7 @@
 ---
 - name: Clone Fedy
   git:
-    repo: "git@github.com:fedy/fedy.git"
+    repo: "git@github.com:rpmfusion-infra/fedy.git"
     dest: "/home/{{ ansible_env.USERNAME }}/Workstation/fedy"
     remote: upstream
     clone: yes
