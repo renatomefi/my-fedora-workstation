@@ -23,7 +23,6 @@
     name:
       - php73
       - php73-runtime
-      - php73-syspaths
       - php73-php-mbstring
       - php73-php-xml
       - php73-php-cli
