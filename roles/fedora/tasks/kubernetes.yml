@@ -42,6 +42,26 @@
     force: yes
     mode: a+x
 
+- name: Creates "/opt/kubeval/{{ kubeval.version }}" directory
+  file:
+    path: "/opt/kubeval/{{ kubeval.version }}"
+    state: directory
+    mode: 0775
+
+- name: Install Kubeval
+  unarchive:
+    src: https://github.com/instrumenta/kubeval/releases/download/{{ kubeval.version }}/kubeval-linux-amd64.tar.gz
+    remote_src: yes
+    dest: "/opt/kubeval/{{ kubeval.version }}"
+    creates: "/opt/kubeval/{{ kubeval.version }}/linux-amd64"
+
+- name: Copy Kail
+  copy:
+    dest: /usr/local/bin
+    src: "/opt/kubeval/{{ kubeval.version }}/kubeval"
+    force: yes
+    mode: a+x
+
 - name: Creates "/opt/kail/{{ kail.version }}" directory
   file:
     path: "/opt/kail/{{ kail.version }}"

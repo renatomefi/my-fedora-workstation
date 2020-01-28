@@ -26,6 +26,9 @@ helm:
 kail:
   version: "0.12.0"
 
+kubeval:
+  version: "0.14.0"
+
 composer:
   version: "1.8.5"
   sha256sum: 4e4c1cd74b54a26618699f3190e6f5fc63bb308b13fa660f71f2a2df047c0e17
