@@ -55,32 +55,27 @@
     dest: "/opt/kubeval/{{ kubeval.version }}"
     creates: "/opt/kubeval/{{ kubeval.version }}/linux-amd64"
 
-- name: Copy Kail
-  copy:
-    dest: /usr/local/bin
-    src: "/opt/kubeval/{{ kubeval.version }}/kubeval"
-    force: yes
-    mode: a+x
+- name: Install Krew
+  shell: |
+    (
+      set -x; cd "$(mktemp -d)" &&
+      curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/download/{{ krew.version }}/krew.{tar.gz,yaml}" &&
+      tar zxvf krew.tar.gz &&
+      KREW=./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" &&
+      "$KREW" install --manifest=krew.yaml --archive=krew.tar.gz &&
+      "$KREW" update
+    )
+  args:
+    creates: "/home/{{ ansible_env.SUDO_USER }}/.krew/bin/kubectl-krew"
 
-- name: Creates "/opt/kail/{{ kail.version }}" directory
-  file:
-    path: "/opt/kail/{{ kail.version }}"
-    state: directory
-    mode: 0775
-
-- name: Install Kail
-  unarchive:
-    src: https://github.com/boz/kail/releases/download/v{{ kail.version }}/kail_{{ kail.version }}_linux_amd64.tar.gz
-    remote_src: yes
-    dest: "/opt/kail/{{ kail.version }}"
-    creates: "/opt/kail/{{ kail.version }}/linux-amd64"
-
-- name: Copy Kail
-  copy:
-    dest: /usr/local/bin
-    src: "/opt/kail/{{ kail.version }}/kail"
-    force: yes
-    mode: a+x
+- name: Install Krew plugins
+  shell: "kubectl krew install {{ item }}"
+  become: yes
+  become_user: "{{ ansible_env.SUDO_USER }}"
+  with_items:
+    - oidc-login
+    - ns # kubens
+    - tail # Kail
 
 - name: Creates "/opt/helm/{{ helm.version }}" directory
   file:
