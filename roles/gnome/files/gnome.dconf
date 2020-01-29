@@ -53,3 +53,6 @@ show-weekdate=true
 
 [org/gnome/shell]
 favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'code.desktop', 'terminator.desktop', 'google-chrome-beta.desktop', 'slack.desktop']
+
+[org/gnome/gnome-screenshot]
+auto-save-directory='/home/renatomefi/Pictures/Screenshots'
