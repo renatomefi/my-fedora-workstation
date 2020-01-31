@@ -51,3 +51,11 @@
     name: "{{ rpmfusion_packages }}"
     state: installed
   tags: pkg
+
+- name: Set Snap to classic mode
+  file:
+    path: /snap
+    src: /var/lib/snapd/snap
+    force: yes
+    state: link
+    follow: yes

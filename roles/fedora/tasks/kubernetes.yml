@@ -21,26 +21,10 @@
     name:
       - kubectl
 
-- name: Install Kubectx
-  get_url:
-    dest: /usr/local/bin/kubectx
-    url: "https://raw.githubusercontent.com/ahmetb/kubectx/{{ kubectx.version }}/kubectx"
-    force: yes
-    mode: a+x
-
-- name: Install Kubens
-  get_url:
-    dest: /usr/local/bin/kubens
-    url: "https://raw.githubusercontent.com/ahmetb/kubectx/{{ kubectx.version }}/kubens"
-    force: yes
-    mode: a+x
-
-- name: Install  Minikube
-  get_url:
-    dest: /usr/local/bin/minikube
-    url: "https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64"
-    force: yes
-    mode: a+x
+- name: Install Microk8s
+  snap:
+    name:
+      - microk8s
 
 - name: Creates "/opt/kubeval/{{ kubeval.version }}" directory
   file:
@@ -76,6 +60,9 @@
     - oidc-login
     - ns # kubens
     - tail # Kail
+    - iexec
+    - ctx #kubectx
+    - kudo
 
 - name: Creates "/opt/helm/{{ helm.version }}" directory
   file:

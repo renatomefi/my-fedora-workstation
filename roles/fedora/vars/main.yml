@@ -51,6 +51,10 @@ dnf_packages:
   - java-11-openjdk-devel
   - java-latest-openjdk
   - java-latest-openjdk-devel
+  - nmap
+  - ShellCheck
+  - openconnect
+  - NetworkManager-openconnect
 
 rpmfusion_packages:
   - gstreamer1-libav
