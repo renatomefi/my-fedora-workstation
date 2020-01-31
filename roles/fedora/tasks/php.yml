@@ -21,6 +21,20 @@
   dnf:
     state: present
     name:
+      - php74
+      - php74-runtime
+      - php74-php-mbstring
+      - php74-php-xml
+      - php74-php-cli
+      - php74-php-pdo
+      - php74-php-json
+      - php74-php-intl
+      - php74-php-pecl-apcu
+      - php74-php-pecl-yaml
+      - php74-php-pecl-xdebug
+      - php74-php-pecl-rdkafka
+      - php74-php-pecl-imagick
+      - php74-php-pecl-rdkafka
       - php73
       - php73-runtime
       - php73-php-mbstring
