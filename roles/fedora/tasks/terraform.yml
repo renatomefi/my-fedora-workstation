@@ -22,7 +22,7 @@
 
 - name: Install Terraform 0.12
   unarchive:
-    src: https://releases.hashicorp.com/terraform/0.12.3/terraform_0.12.3_linux_amd64.zip
+    src: https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_linux_amd64.zip
     remote_src: yes
     dest: /opt/terraform/0.12/
     creates: /opt/terraform/bin/terraform
