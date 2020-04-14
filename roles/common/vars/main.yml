@@ -21,7 +21,7 @@ kubectx:
   version: v0.7.1
 
 helm:
-  version: v2.14.3
+  version: v2.16.5
 
 kail:
   version: "0.12.0"
@@ -37,8 +37,8 @@ composer:
   sha256sum: 4e4c1cd74b54a26618699f3190e6f5fc63bb308b13fa660f71f2a2df047c0e17
 
 docker_compose:
-  version: 1.24.0
-  sha256sum: bee6460f96339d5d978bb63d17943f773e1a140242dfa6c941d5e020a302c91b
+  version: 1.25.5
+  sha256sum: 1cb7ecccc17c8d5f1888f9e2b3211b07e35c86d0010a6c0f711fe65ef5b69528
 
 workspace_repos:
   - { group: 'debezium', dir: 'debezium-parent', repo: 'git@github.com:debezium/debezium.git' }

@@ -23,7 +23,7 @@
 
 - name: Install Docker CE
   dnf:
-    state: installed
+    state: latest
     name:
       - docker-ce
       - docker-ce-cli

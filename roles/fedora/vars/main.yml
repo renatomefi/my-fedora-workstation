@@ -55,6 +55,11 @@ dnf_packages:
   - ShellCheck
   - openconnect
   - NetworkManager-openconnect
+  - cabextract
+  - lzip
+  - p7zip
+  - p7zip-plugins
+  - unrar
 
 rpmfusion_packages:
   - gstreamer1-libav

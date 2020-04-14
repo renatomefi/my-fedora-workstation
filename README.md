@@ -4,7 +4,7 @@ It's very opinionated to my usage, but do what you want!
 
 ## Compatibility
 
-Fedora 30
+Fedora 31
 
 ## Before running
 
