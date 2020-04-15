@@ -1,10 +1,10 @@
 ---
 - rpm_key: key=https://slack.com/gpg/slack_pubkey.gpg
-    state=present
+    state=latest
 
 - copy: src=slack.repo 
     dest=/etc/yum.repos.d/slack.repo
     owner=root group=root mode=644
 
 - name: Install slack
-  dnf: pkg=slack state=installed
+  dnf: pkg=slack state=latest

@@ -53,3 +53,23 @@
     force: yes
     sha256sum: "{{ docker_compose.sha256sum }}"
     mode: a+x
+
+- name: Creates "/opt/lazydocker/{{ lazydocker.version }}" directory
+  file:
+    path: "/opt/lazydocker/{{ lazydocker.version }}"
+    state: directory
+    mode: 0775
+
+- name: Install Lazydocker
+  unarchive:
+    src: https://github.com/jesseduffield/lazydocker/releases/download/v{{ lazydocker.version }}/lazydocker_{{ lazydocker.version }}_Linux_x86_64.tar.gz
+    remote_src: yes
+    dest: "/opt/lazydocker/{{ lazydocker.version }}"
+    creates: "/opt/lazydocker/{{ lazydocker.version }}/lazydocker"
+
+- name: Copy Lazydocker bin
+  copy:
+    dest: /usr/local/bin
+    src: "/opt/lazydocker/{{ lazydocker.version }}/lazydocker"
+    force: yes
+    mode: a+x
