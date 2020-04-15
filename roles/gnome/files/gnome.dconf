@@ -1,3 +1,15 @@
+[org/gnome/desktop/interface]
+clock-show-date=true
+clock-show-seconds=true
+gtk-theme='Arc-Dark'
+icon-theme='Arc'
+monospace-font-name='JetBrains Mono Medium 11'
+toolkit-accessibility=false
+
+[org/gnome/settings-daemon/plugins/xsettings]
+antialiasing='rgba'
+hinting='slight'
+
 [org/gnome/settings-daemon/plugins/media-keys]
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
 
@@ -9,9 +21,12 @@ name='Terminal'
 [org/gnome/GWeather]
 temperature-unit='centigrade'
 
-[org/gnome/Weather]
+[org/gnome/shell/weather]
 automatic-location=false
 locations=[<(uint32 2, <('Amsterdam', 'EHAM', true, [(0.91280719879303418, 0.083194033496160544)], [(0.91367986341903151, 0.085812027374152042)])>)>]
+
+[org/gnome/shell/world-clocks]
+locations=[<(uint32 2, <('San Francisco', 'KOAK', false, [(0.65832848982162007, -2.133408063190589)], [(0.65832848982162007, -2.133408063190589)])>)>, <(uint32 2, <('Edmonton', 'CYED', true, [(0.93666003772138751, -1.9803669304139968)], [(0.93462381444296339, -1.9809487010135638)])>)>, <(uint32 2, <('New York', 'KNYC', true, [(0.71180344078725644, -1.2909618758762367)], [(0.71059804659265924, -1.2916478949920254)])>)>, <(uint32 2, <('Ottawa', 'CYOW', true, [(0.79092504517986117, -1.3206324731601402)], [(0.7926703744318554, -1.3212142437597076)])>)>, <(uint32 2, <('Brasília', 'SBBR', true, [(-0.27692558046753113, -0.83659448230485101)], [(-0.27547112778867422, -0.83630360573171358)])>)>, <(uint32 2, <('Coordinated Universal Time (UTC)', '@UTC', false, @a(dd) [], @a(dd) [])>)>]
 
 [org/gnome/desktop/input-sources]
 current=uint32 0
@@ -22,14 +37,19 @@ xkb-options=@as []
 [system/locale]
 region='nl_NL.UTF-8'
 
-[org/gnome/gedit/plugins/filebrowser/nautilus]
-click-policy='double'
-confirm-trash=true
-
 [org/gnome/desktop/peripherals/touchpad]
 edge-scrolling-enabled=false
 tap-to-click=true
 two-finger-scrolling-enabled=true
+
+[org/gnome/gedit/plugins/filebrowser/nautilus]
+click-policy='double'
+confirm-trash=true
+
+[org/gnome/nautilus/list-view]
+default-visible-columns=['name', 'size', 'owner', 'date_modified', 'starred']
+default-zoom-level='standard'
+use-tree-view=true
 
 [org/gnome/nautilus/list-view]
 default-visible-columns=['name', 'size', 'owner', 'date_modified', 'starred']
@@ -54,5 +74,38 @@ show-weekdate=true
 [org/gnome/shell]
 favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'code.desktop', 'terminator.desktop', 'google-chrome-beta.desktop', 'slack.desktop']
 
+[org/gnome/settings-daemon/plugins/color]
+night-light-enabled=true
+
+[org/gnome/gnome-system-monitor]
+cpu-stacked-area-chart=false
+current-tab='resources'
+disks-interval=5000
+graph-update-interval=1000
+maximized=false
+network-in-bits=false
+show-dependencies=false
+show-whose-processes='user'
+smooth-refresh=true
+update-interval=2000
+window-state=(1080, 638, 105, 1797)
+
 [org/gnome/gnome-screenshot]
 auto-save-directory='/home/renatomefi/Pictures/Screenshots'
+
+[org/gnome/desktop/notifications/application/spotify]
+application-id='spotify.desktop'
+enable-sound-alerts=false
+show-banners=false
+
+[org/gnome/desktop/search-providers]
+disabled=['firefox.desktop', 'org.gnome.Photos.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Contacts.desktop', 'org.gnome.Boxes.desktop', 'org.gnome.Terminal.desktop']
+sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
+
+[org/gnome/desktop/sound]
+allow-volume-above-100-percent=false
+event-sounds=true
+theme-name='__custom'
+
+[org/gnome/gedit/plugins]
+active-plugins=['filebrowser', 'spell', 'docinfo', 'modelines', 'time']

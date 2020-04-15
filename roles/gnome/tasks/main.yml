@@ -1,17 +1,20 @@
 ---
 - name: Remove unwanted extensions
   dnf:
-    state: installed
+    state: absent
     name:
       - gnome-shell-extension-topicons-plus
       - gnome-shell-extension-background-logo
+      - gnome-shell-extension-apps-menu
+      - gnome-shell-extension-horizontal-workspaces
+      - gnome-shell-extension-launch-new-instance
+      - gnome-shell-extension-window-list
 
 - name: Install extensions
   dnf:
     state: installed
     name:
       - gnome-shell-extension-no-topleft-hot-corner
-      - gnome-shell-extension-topicons-plus
       - gnome-shell-extension-user-theme
       - gnome-shell-extension-places-menu
 
@@ -33,6 +36,17 @@
     - window-list@gnome-shell-extensions.gcampax.github.com
   become: yes
   become_user: "{{ ansible_env.SUDO_USER }}"
+
+- name: Install JetBrains Mono font
+  unarchive:
+    src: https://download.jetbrains.com/fonts/JetBrainsMono-1.0.3.zip
+    remote_src: yes
+    dest: /home/{{ ansible_env.USERNAME }}/.local/share/fonts
+    owner: '{{ ansible_env.USERNAME }}'
+    group: '{{ ansible_env.USERNAME }}'
+
+- name: Refresh system fonts
+  command: "fc-cache -f -v"
 
 - name: Enable Fedora Copr for user501254/Arc
   command: "dnf copr enable -y user501254/Arc"
