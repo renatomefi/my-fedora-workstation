@@ -1,0 +1,19 @@
+---
+- name: Create AWS CLI dir
+  file:
+    path: "/opt/aws/download"
+    state: directory
+    mode: 0775
+    owner: '{{ ansible_env.USERNAME }}'
+    group: '{{ ansible_env.USERNAME }}'
+
+- name: Download AWS CLI
+  unarchive:
+    src: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+    remote_src: yes
+    dest: /opt/aws/download
+    owner: '{{ ansible_env.USERNAME }}'
+    group: '{{ ansible_env.USERNAME }}'
+
+- name: Install/Update AWS CLI
+  command: "/opt/aws/download/aws/install --update -b /usr/local/bin"
