@@ -64,6 +64,11 @@
     - ctx #kubectx
     - kudo
 
+- name: Update Krew plugins
+  shell: "kubectl krew upgrade"
+  become: yes
+  become_user: "{{ ansible_env.SUDO_USER }}"
+
 - name: Creates "/opt/helm/{{ helm.version }}" directory
   file:
     path: "/opt/helm/{{ helm.version }}"
