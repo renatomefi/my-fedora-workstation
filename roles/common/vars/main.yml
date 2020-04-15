@@ -40,6 +40,9 @@ docker_compose:
 lazydocker:
   version: 0.8
 
+gh_cli:
+  version: 0.6.4
+
 workspace_repos:
   - { group: 'debezium', dir: 'debezium-parent', repo: 'git@github.com:debezium/debezium.git' }
   - { group: 'debezium', dir: 'debezium-examples', repo: 'git@github.com:debezium/debezium-examples.git' }

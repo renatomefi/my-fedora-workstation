@@ -17,3 +17,8 @@
     - Shan.code-settings-sync
   become: yes
   become_user: "{{ ansible_env.SUDO_USER }}"
+
+- name: Install GitHub CLI
+  dnf:
+    name: https://github.com/cli/cli/releases/download/v{{ gh_cli.version }}/gh_{{ gh_cli.version }}_linux_amd64.rpm
+    state: latest
