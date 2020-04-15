@@ -5,5 +5,5 @@
   register: kafkacat_installed
 
 - name: Copy Kafkacat from debezium docker image
-  shell: (docker run --rm -v /home/{{ ansible_env.SUDO_USER }}/.local/bin:/m debezium/tooling:latest sh -c "cp /usr/bin/kafkacat /m/")
+  shell: (docker pull debezium/tooling:latest && docker run --rm -v /home/{{ ansible_env.SUDO_USER }}/.local/bin:/m debezium/tooling:latest sh -c "cp /usr/bin/kafkacat /m/")
   when: kafkacat_installed.stdout == "false"

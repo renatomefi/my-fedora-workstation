@@ -7,27 +7,13 @@
     owner=root group=root mode=644
 
 - name: Install Visual Studio Code
-  dnf: pkg=code state=installed
+  dnf: pkg=code state=latest
 
 - name: Install vscode extensions
   command: code --install-extension {{ item }}
   with_items:
+    # the basics to survive before the sync settings kicks in
     - k--kato.intellij-idea-keybindings
-    # - codezombiech.gitignore
-    # - cstuder.gitlab-ci-validator
-    # - DavidAnson.vscode-markdownlint
-    # - fatihacet.gitlab-workflow
-    # - file-icons.file-icons
-    # - joaompinto.asciidoctor-vscode
-    # - jspolancor.presentationmode
-    # - jvandyke.vscode-circleci
-    # - karunamurti.haml
-    # - mikestead.dotenv
-    # - redhat.vscode-yaml
-    # - shanoor.vscode-nginx
-    # - streetsidesoftware.code-spell-checker
-    # - timonwong.shellcheck
-    # - vscoss.vscode-ansible
     - Shan.code-settings-sync
   become: yes
   become_user: "{{ ansible_env.SUDO_USER }}"

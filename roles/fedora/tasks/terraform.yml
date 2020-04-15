@@ -10,7 +10,7 @@
     - download
     - bin
     - "0.11"
-    - "0.12"
+    - "{{ terraform_012.version }}"
 
 - name: Install Terraform 0.11
   unarchive:
@@ -22,10 +22,10 @@
 
 - name: Install Terraform 0.12
   unarchive:
-    src: https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_linux_amd64.zip
+    src: https://releases.hashicorp.com/terraform/{{ terraform_012.version }}/terraform_{{ terraform_012.version }}_linux_amd64.zip
     remote_src: yes
-    dest: /opt/terraform/0.12/
-    creates: /opt/terraform/bin/terraform
+    dest: /opt/terraform/{{ terraform_012.version }}/
+    creates: /opt/terraform/{{ terraform_012.version }}/terraform
     owner: '{{ ansible_env.USERNAME }}'
     group: '{{ ansible_env.USERNAME }}'
 
@@ -42,7 +42,7 @@
 - name: Install Terraform 0.12 symlinks"
   file:
     path: /opt/terraform/bin/terraform
-    src: /opt/terraform/0.12/terraform
+    src: /opt/terraform/{{ terraform_012.version }}/terraform
     force: yes
     owner: "{{ ansible_env.SUDO_USER }}"
     group: "{{ ansible_env.SUDO_USER }}"

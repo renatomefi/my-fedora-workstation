@@ -1,4 +1,4 @@
 ---
 gsettings:
   # theme
-  - "org.gnome.shell.extensions.user-theme name 'Arc-Dark'"
+  - "org.gnome.shell.extensions.user-theme name ''"

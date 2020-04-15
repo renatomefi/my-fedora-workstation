@@ -28,3 +28,6 @@
   command: "sh /home/{{ ansible_env.USERNAME }}/Workstation/fedy/plugins/msttcorefonts.plugin/install.sh"
   args:
     creates: /var/cache/fedy/mscorefonts
+
+- name: Install Pulseaudio Bluetooth
+  command: "sh /home/{{ ansible_env.USERNAME }}/Workstation/fedy/plugins/pulseaudio-module-bluetooth-freeworld.plugin/install.sh"

@@ -23,11 +23,5 @@ cpu-individual-cores=false
 gpu-display=false
 thermal-refresh-time=3000
 
-[org/gnome/shell/extensions/topicons]
-icon-size=22
-icon-spacing=14
-tray-order=1
-tray-pos='right'
-
 [org/gnome/shell/extensions/user-theme]
-name='Arc-Dark'
+name=''

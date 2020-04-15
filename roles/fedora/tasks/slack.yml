@@ -1,6 +1,6 @@
 ---
 - rpm_key: key=https://slack.com/gpg/slack_pubkey.gpg
-    state=latest
+    state=present
 
 - copy: src=slack.repo 
     dest=/etc/yum.repos.d/slack.repo

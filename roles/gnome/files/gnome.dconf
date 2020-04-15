@@ -1,8 +1,8 @@
 [org/gnome/desktop/interface]
 clock-show-date=true
 clock-show-seconds=true
-gtk-theme='Arc-Dark'
-icon-theme='Arc'
+gtk-theme='Adwaita-dark'
+icon-theme='Papirus-Dark'
 monospace-font-name='JetBrains Mono Medium 11'
 toolkit-accessibility=false
 

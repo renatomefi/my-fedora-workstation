@@ -31,6 +31,9 @@
     remote: "{{ item.remote | default('upstream') }}"
     clone: yes
     update: no
+    force: no
   with_items:
     - "{{ workspace_repos }}"
     - "{{ workspace_repos_home.repos | default([]) }}"
+
+# install gh cli https://github.com/cli/cli/releases

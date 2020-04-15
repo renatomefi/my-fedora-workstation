@@ -66,6 +66,8 @@ dnf_packages:
   - p7zip-plugins
   - unrar
   - blueman
+  - ImageMagick
+  - glib2-devel
 
 rpmfusion_packages:
   - gstreamer1-libav

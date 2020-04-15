@@ -15,19 +15,19 @@ worspace_dirs:
   - golang
   - fedora
   - js
-  - presentations
-
-kubectx:
-  version: v0.7.1
+  - talks
 
 helm:
   version: v2.16.5
 
 kubeval:
-  version: "0.14.0"
+  version: "0.15.0"
 
 krew:
-  version: "v0.3.3"
+  version: "v0.3.4"
+
+terraform_012:
+  version: 0.12.24
 
 composer:
   version: "1.8.5"
@@ -52,5 +52,7 @@ workspace_repos:
   - { group: 'kafka', dir: 'cp-helm-charts', repo: 'git@github.com:confluentinc/cp-helm-charts.git' }
   - { group: 'kafka', dir: 'kafka-rest', repo: 'git@github.com:confluentinc/kafka-rest.git' }
   - { group: 'fedora', dir: 'fedy', repo: 'git@github.com:rpmfusion-infra/fedy.git' }
+  - { group: 'docker', dir: 'docker-testinfra', repo: 'git@github.com:renatomefi/docker-testinfra' }
+  - { group: 'php', dir: 'php-fpm-healthcheck', repo: 'git@github.com:renatomefi/php-fpm-healthcheck' }
 
 ansible_python_interpreter: "/usr/bin/python3"

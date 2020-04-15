@@ -54,12 +54,19 @@
     creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:user501254:Arc.repo
     warn: false
 
+- name: Enable Fedora Copr for dirkdavidis/papirus-icon-theme
+  command: "dnf copr enable -y dirkdavidis/papirus-icon-theme"
+  args:
+    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:dirkdavidis:papirus-icon-theme.repo
+    warn: false
+
 - name: Install theme packages
   dnf:
     state: installed
     name:
       - arc-icon-theme
       - arc-theme-solid
+      - papirus-icon-theme
 
 - name: gsettings set {{ item }}
   command: "gsettings set {{ item }}"
