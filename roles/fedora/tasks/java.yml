@@ -1,0 +1,23 @@
+---
+- name: "Add AdoptOpenJDK repo key"
+  rpm_key: 
+    key: https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public
+    state: present
+
+- name: "Add AdoptOpenJDK repo"
+  copy:
+    src: adoptopenjdk.repo 
+    dest: /etc/yum.repos.d/adoptopenjdk.repo
+    owner: root
+    group: root
+    mode: 644
+
+
+- name: Install JDK
+  dnf:
+    state: latest
+    name:
+      - adoptopenjdk-8-hotspot
+      - adoptopenjdk-11-hotspot
+      - adoptopenjdk-13-hotspot
+      - adoptopenjdk-14-hotspot

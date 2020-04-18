@@ -57,6 +57,10 @@
   tags:
     - php
 
+- include: java.yml
+  tags:
+    - java
+
 - name: Install Zoom
   dnf:
     name: https://zoom.us/client/latest/zoom_x86_64.rpm 
