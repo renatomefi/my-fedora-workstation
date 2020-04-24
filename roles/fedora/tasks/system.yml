@@ -12,19 +12,14 @@
   notify:
     - restart sshd
 
-- name: dynmotd
-  copy:
-    src: dynmotd
-    dest: /usr/local/bin/dynmotd
-    owner: root
-    group: root
-    mode: 0755
+- name: Install neofetch
+  dnf: name=neofetch state=latest
 
-- name: Update profile
+- name: Update profile with neofetch
   lineinfile:
     dest: "/etc/profile"
     insertafter: EOF
-    line: /usr/local/bin/dynmotd
+    line: /usr/bin/neofetch
 
 - name: Add rpmfusion free
   dnf:
