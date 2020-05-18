@@ -43,16 +43,6 @@
     - third-party
     - kubernetes
 
-- include: slack.yml
-  tags:
-    - third-party
-    - slack
-
-- include: spotify.yml
-  tags:
-    - third-party
-    - spotify
-
 - include: php.yml
   tags:
     - php
@@ -60,14 +50,6 @@
 - include: java.yml
   tags:
     - java
-
-- name: Install Zoom
-  dnf:
-    name: https://zoom.us/client/latest/zoom_x86_64.rpm 
-    state: latest
-  tags:
-    - third-party
-    - zoom
 
 - include: kafka.yml
   tags:
@@ -78,3 +60,27 @@
   tags:
     - third-party
     - terraform
+
+- name: Install Slack
+  flatpak:
+    name:  com.slack.Slack
+    state: present
+  tags:
+    - third-party
+    - slack
+
+- name: Install Spotify
+  flatpak:
+    name:  com.spotify.Client
+    state: present
+  tags:
+    - third-party
+    - spotify
+
+- name: Install Zoom
+  flatpak:
+    name:  us.zoom.Zoom
+    state: present
+  tags:
+    - third-party
+    - zoom
