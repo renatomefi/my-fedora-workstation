@@ -1,9 +1,4 @@
 ---
-- name: Set selinux to permissive mode
-  selinux:
-    policy: targeted
-    state: permissive
-
 - name: disable static motd file
   lineinfile:
     dest: "/etc/ssh/sshd_config"

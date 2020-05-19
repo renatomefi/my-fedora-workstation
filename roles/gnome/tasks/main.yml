@@ -37,6 +37,14 @@
   become: yes
   become_user: "{{ ansible_env.SUDO_USER }}"
 
+- name: Creates "/home/{{ ansible_env.USERNAME }}/.local/share/fonts" directory
+  file:
+    path: /home/{{ ansible_env.USERNAME }}/.local/share/fonts
+    state: directory
+    owner: '{{ ansible_env.USERNAME }}'
+    group: '{{ ansible_env.USERNAME }}'
+    mode: 0775
+
 - name: Install JetBrains Mono font
   unarchive:
     src: https://download.jetbrains.com/fonts/JetBrainsMono-1.0.3.zip

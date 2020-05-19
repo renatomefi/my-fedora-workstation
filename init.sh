@@ -4,7 +4,7 @@
 set -e
 
 # install initial packages
-sudo dnf install -y vim ansible git zsh libselinux-python python3-dnf
+sudo dnf install -y vim ansible git zsh python3-libselinux python3-dnf
 
 # clone dotfiles, if this doesn't work just clone it in ~/Workstation/dotfiles manually
 mkdir -p ~/Workstation

@@ -61,26 +61,20 @@
     - third-party
     - terraform
 
-- name: Install Slack
+- name: Install Flatpak packages
   flatpak:
-    name:  com.slack.Slack
+    name: '{{ item }}'
     state: present
+  with_items:
+    - com.slack.Slack
+    - com.spotify.Client
+    - us.zoom.Zoom
   tags:
     - third-party
-    - slack
+    - flatpak
 
-- name: Install Spotify
-  flatpak:
-    name:  com.spotify.Client
-    state: present
-  tags:
-    - third-party
-    - spotify
-
-- name: Install Zoom
-  flatpak:
-    name:  us.zoom.Zoom
-    state: present
-  tags:
-    - third-party
-    - zoom
+- name: Install Snap packages
+  snap:
+    classic: true
+    name:
+      - nordpass

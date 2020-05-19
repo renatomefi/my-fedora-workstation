@@ -39,6 +39,11 @@
     groups: docker
     append: yes
 
+- name: Add docker group to sesseion
+  shell: "newgrp docker"
+  become: yes
+  become_user: "{{ ansible_env.SUDO_USER }}"
+
 - name: Start Docker CE
   systemd: 
     name: docker.service

@@ -1,5 +1,6 @@
 ---
 dnf_packages:
+  - snapd
   - ack
   - ansible
   - autokey-gtk
@@ -35,7 +36,6 @@ dnf_packages:
   - system-storage-manager
   - the_silver_searcher
   - tmux
-  - tmuxinator
   - tree
   - weechat
   - xclip

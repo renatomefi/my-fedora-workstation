@@ -3,10 +3,10 @@
   become: yes
   become_user: "root"
   vars_files:
-    - "roles/common/vars/main.yml"
+    - "roles/requirements/vars/main.yml"
   roles:
-    - role: common
-      tags: ["common"]
+    - role: requirements
+      tags: ["requirements"]
     - role: work
       tags: ["work"]
       become: yes

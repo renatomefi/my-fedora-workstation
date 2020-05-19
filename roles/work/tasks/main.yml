@@ -32,6 +32,7 @@
     clone: yes
     update: no
     force: no
+  ignore_errors: yes
   with_items:
     - "{{ workspace_repos }}"
     - "{{ workspace_repos_home.repos | default([]) }}"

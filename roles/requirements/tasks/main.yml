@@ -1,4 +1,9 @@
 ---
+- name: Set selinux to permissive mode
+  selinux:
+    policy: targeted
+    state: permissive
+
 - include: dotfiles.yml
   tags: ["dotfiles"]
   become: yes
