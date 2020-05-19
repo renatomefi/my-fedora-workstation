@@ -14,11 +14,6 @@
   args:
     creates: /opt/jetbrains-toolbox/
 
-- name: Install Postman
-  command: "sh /home/{{ ansible_env.USERNAME }}/Workstation/fedy/plugins/postman.plugin/install.sh"
-  args:
-    creates: /opt/Postman
-
 - name: Disable mouse acceleration
   command: "sh /home/{{ ansible_env.USERNAME }}/Workstation/fedy/plugins/mouse.plugin/setup.sh"
   args:
