@@ -27,6 +27,12 @@
     name:
       - microk8s
 
+- name: Append microk8s docker to "{{ ansible_env.SUDO_USER }}"
+  user: 
+    name: "{{ ansible_env.SUDO_USER }}"
+    groups: microk8s
+    append: yes
+
 - name: Creates "/opt/kubeval/{{ kubeval.version }}" directory
   file:
     path: "/opt/kubeval/{{ kubeval.version }}"
