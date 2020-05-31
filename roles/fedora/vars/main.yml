@@ -47,19 +47,8 @@ dnf_packages:
   - autojump
   - autojump-zsh
   - torbrowser-launcher
-  - java-11-openjdk
-  - java-11-openjdk-devel
-  - java-11-openjdk-src
-  - java-1.8.0-openjdk
-  - java-1.8.0-openjdk-devel
-  - java-1.8.0-openjdk-src
-  - java-latest-openjdk
-  - java-latest-openjdk-devel
-  - java-latest-openjdk-src
-  - nmap
   - ShellCheck
   - openconnect
-  - NetworkManager-openconnect
   - cabextract
   - lzip
   - p7zip
@@ -69,6 +58,8 @@ dnf_packages:
   - ImageMagick
   - glib2-devel
   - lm_sensors
+  - "@C Development Tools and Libraries"
+  - "@System Tools"
 
 rpmfusion_packages:
   - gstreamer1-libav
