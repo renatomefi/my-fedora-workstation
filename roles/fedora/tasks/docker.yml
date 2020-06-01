@@ -52,7 +52,7 @@
     state: started
 
 - name: Configure firewall for Docker network
-  shell: "firewall-cmd --permanent --zone=trusted --add-masquerade && firewall-cmd --permanent --zone=trusted --add-interface=docker0 && firewall-cmd --reload"
+  shell: "firewall-cmd --permanent --zone=libvirt --add-masquerade && firewall-cmd --permanent --zone=libvirt --add-interface=docker0 && firewall-cmd --set-default-zone=libvirt && firewall-cmd --reload"
 
 - copy: src=docker-daemon.json
     dest=/etc/docker/daemon.json
