@@ -24,6 +24,7 @@
 - name: Install Microk8s
   snap:
     classic: true
+    channel: candidate
     name:
       - microk8s
 
