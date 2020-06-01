@@ -27,11 +27,29 @@
     name:
       - microk8s
 
-- name: Append microk8s docker to "{{ ansible_env.SUDO_USER }}"
+- name: Append group microk8s to "{{ ansible_env.SUDO_USER }}"
   user: 
     name: "{{ ansible_env.SUDO_USER }}"
     groups: microk8s
     append: yes
+
+- name: Microk8s stop
+  shell: source /etc/profile.d/snapd.sh && microk8s.stop
+
+- name: Microk8s start
+  shell: source /etc/profile.d/snapd.sh && microk8s.start
+
+- name: Microk8s status
+  shell: source /etc/profile.d/snapd.sh && microk8s.status --wait-ready
+
+- name: Microk8s enable modules
+  shell: "source /etc/profile.d/snapd.sh && microk8s.enable {{ item }}"
+  with_items:
+    - storage
+    - registry
+    - dns
+    - helm
+    - helm3
 
 - name: Creates "/opt/kubeval/{{ kubeval.version }}" directory
   file:

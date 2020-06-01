@@ -4,9 +4,14 @@ It's very opinionated to my usage, but do what you want!
 
 ## Compatibility
 
-Fedora 31
+Fedora 32
 
 ## Before running
+
+Update the system
+
+Downgrade to cgroups v1 - In order to have snap and docker running correctly
+https://fedoraproject.org/wiki/Common_F31_bugs#Docker_package_no_longer_available_and_will_not_run_by_default_.28due_to_switch_to_cgroups_v2.29
 
 Install Nvidia drivers: https://fedoramagazine.org/install-nvidia-gpu/ and https://rpmfusion.org/Howto/NVIDIA (Also check Wayland section)
 

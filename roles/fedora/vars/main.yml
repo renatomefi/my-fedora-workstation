@@ -58,6 +58,7 @@ dnf_packages:
   - ImageMagick
   - glib2-devel
   - lm_sensors
+  - firewall-config
   - "@C Development Tools and Libraries"
   - "@System Tools"
 

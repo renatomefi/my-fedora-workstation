@@ -51,6 +51,13 @@
     daemon_reload: yes
     state: started
 
+- name: Configure firewall for Docker network
+  shell: "firewall-cmd --permanent --zone=trusted --add-interface=docker0 && firewall-cmd --reload"
+
+- copy: src=docker-daemon.json
+    dest=/etc/docker/daemon.json
+    owner=root group=root mode=644
+
 - name: Install Docker Compose
   get_url:
     dest: /usr/local/bin/docker-compose
