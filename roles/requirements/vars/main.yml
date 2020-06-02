@@ -43,19 +43,4 @@ lazydocker:
 gh_cli:
   version: 0.6.4
 
-workspace_repos:
-  - { group: 'debezium', dir: 'debezium-parent', repo: 'git@github.com:debezium/debezium.git' }
-  - { group: 'debezium', dir: 'debezium-examples', repo: 'git@github.com:debezium/debezium-examples.git' }
-  - { group: 'debezium', dir: 'debezium-docker-images', repo: 'git@github.com:debezium/docker-images.git' }
-  - { group: 'debezium', dir: 'debezium.github.io', repo: 'git@github.com:debezium/debezium.github.io.git' }
-  - { group: 'kafka', dir: 'kafka', repo: 'git@github.com:apache/kafka.git' }
-  - { group: 'kafka', dir: 'ksql', repo: 'git@github.com:confluentinc/ksql.git' }
-  - { group: 'kafka', dir: 'kafka-streams-examples', repo: 'git@github.com:confluentinc/kafka-streams-examples.git' }
-  - { group: 'kafka', dir: 'cp-docker-images', repo: 'git@github.com:confluentinc/cp-docker-images.git' }
-  - { group: 'kafka', dir: 'cp-helm-charts', repo: 'git@github.com:confluentinc/cp-helm-charts.git' }
-  - { group: 'kafka', dir: 'kafka-rest', repo: 'git@github.com:confluentinc/kafka-rest.git' }
-  - { group: 'fedora', dir: 'fedy', repo: 'git@github.com:rpmfusion-infra/fedy.git' }
-  - { group: 'docker', dir: 'docker-testinfra', repo: 'git@github.com:renatomefi/docker-testinfra' }
-  - { group: 'php', dir: 'php-fpm-healthcheck', repo: 'git@github.com:renatomefi/php-fpm-healthcheck' }
-
 ansible_python_interpreter: "/usr/bin/python3"

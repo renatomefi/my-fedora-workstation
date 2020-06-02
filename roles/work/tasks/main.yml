@@ -30,9 +30,8 @@
     dest: "/home/{{ ansible_env.USERNAME }}/Workspace/{{ item.group }}/{{ item.dir }}"
     remote: "{{ item.remote | default('upstream') }}"
     clone: yes
-    update: no
+    update: yes
     force: no
   ignore_errors: yes
   with_items:
-    - "{{ workspace_repos }}"
-    - "{{ workspace_repos_home.repos | default([]) }}"
+    - "{{ workspace_repos.repos | default([]) }}"
