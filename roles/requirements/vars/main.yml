@@ -7,7 +7,7 @@ pip_packages:
   - yq
   - awscli
 
-worspace_dirs:
+code_dirs:
   - kafka
   - debezium
   - php

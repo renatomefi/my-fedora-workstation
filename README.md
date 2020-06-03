@@ -36,7 +36,7 @@ $ ansible-playbook -i hosts.dist -K main.yml --tags="dotfiles"
   - sudo without password
   - change shell to zsh
 - **work**
-  - create `~/Workspace`
+  - create `~/Code`
   - clone favorite repositories in place
 - **fedora**
   - **system**

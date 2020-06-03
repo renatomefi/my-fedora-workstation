@@ -9,7 +9,7 @@
     state: link
     follow: yes
   with_items:
-    - workspace_repos.yaml
+    - code_repos.yaml
     - mitmproxy
     - vimrc
     - vpn

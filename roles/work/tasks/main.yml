@@ -1,37 +1,37 @@
 ---
 
-- name: Creates Workspace directory
+- name: Creates Code directory
   file:
-    path: /home/{{ ansible_env.USERNAME }}/Workspace
+    path: /home/{{ ansible_env.USERNAME }}/Code
     state: directory
     owner: '{{ ansible_env.USERNAME }}'
     group: '{{ ansible_env.USERNAME }}'
     mode: 0775
 
-- name: Creates Workspace Groups directory
+- name: Creates Code Groups directory
   file:
-    path: /home/{{ ansible_env.USERNAME }}/Workspace/{{ item }}
+    path: /home/{{ ansible_env.USERNAME }}/Code/{{ item }}
     state: directory
     owner: '{{ ansible_env.USERNAME }}'
     group: '{{ ansible_env.USERNAME }}'
     mode: 0775
   with_items:
-    - "{{ worspace_dirs }}"
+    - "{{ code_dirs }}"
 
 - name: Include vars
   include_vars:
-    file: /home/{{ ansible_env.USERNAME }}/.workspace_repos.yaml
-    name: workspace_repos
+    file: /home/{{ ansible_env.USERNAME }}/.code_repos.yaml
+    name: code_repos
   ignore_errors: yes
 
 - name: Clone my repositories
   git:
     repo: "{{ item.repo }}"
-    dest: "/home/{{ ansible_env.USERNAME }}/Workspace/{{ item.group }}/{{ item.dir }}"
+    dest: "/home/{{ ansible_env.USERNAME }}/Code/{{ item.group }}/{{ item.dir }}"
     remote: "{{ item.remote | default('upstream') }}"
     clone: yes
     update: yes
     force: no
   ignore_errors: yes
   with_items:
-    - "{{ workspace_repos.repos | default([]) }}"
+    - "{{ Code_repos.repos | default([]) }}"
