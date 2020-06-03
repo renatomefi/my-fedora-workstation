@@ -8,7 +8,7 @@ sudo dnf install -y vim ansible git zsh python3-libselinux python3-dnf
 
 # clone dotfiles, if this doesn't work just clone it in ~/Workstation/dotfiles manually
 mkdir -p ~/Workstation
-read -p "Enter your Github Token (https://github.com/settings/tokens/new): "  TOKEN
+read -r -p "Enter your Github Token (https://github.com/settings/tokens/new): "  TOKEN
 
 test -d ~/Workstation/dotfiles \
     || git clone --recursive "https://${USER}:${TOKEN}@github.com/${USER}/dotfiles.git" ~/Workstation/dotfiles

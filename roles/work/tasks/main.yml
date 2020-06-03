@@ -21,10 +21,10 @@
 - name: Include vars
   include_vars:
     file: /home/{{ ansible_env.USERNAME }}/.workspace_repos.yaml
-    name: workspace_repos_home
+    name: workspace_repos
   ignore_errors: yes
 
-- name: Clone favorite Open Source projects
+- name: Clone my repositories
   git:
     repo: "{{ item.repo }}"
     dest: "/home/{{ ansible_env.USERNAME }}/Workspace/{{ item.group }}/{{ item.dir }}"
