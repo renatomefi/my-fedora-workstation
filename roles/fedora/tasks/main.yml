@@ -69,6 +69,7 @@
     - com.slack.Slack
     - com.spotify.Client
     - us.zoom.Zoom
+    - flathub com.nordpass.NordPass
   tags:
     - third-party
     - flatpak
@@ -77,5 +78,4 @@
   snap:
     classic: true
     name:
-      - nordpass
       - postman
