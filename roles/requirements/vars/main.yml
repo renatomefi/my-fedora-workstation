@@ -18,7 +18,7 @@ code_dirs:
   - talks
 
 helm:
-  version: v2.16.5
+  version: v2.14.3
 
 kubeval:
   version: "0.15.0"
