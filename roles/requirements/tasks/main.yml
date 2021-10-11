@@ -9,9 +9,6 @@
   become: yes
   become_user: "{{ ansible_env.SUDO_USER }}"
 
-- name: Install pip (if needed)
-  easy_install: name=pip
-
 - name: Install pip3 packages
   pip: name='{{ pip_packages }}' state=latest executable=pip3
 

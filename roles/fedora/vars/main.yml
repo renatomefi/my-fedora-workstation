@@ -59,11 +59,12 @@ dnf_packages:
   - glib2-devel
   - lm_sensors
   - firewall-config
+  - environment-modules
   - "@C Development Tools and Libraries"
   - "@System Tools"
 
 rpmfusion_packages:
   - gstreamer1-libav
-  - mingw64-gstreamer-plugins-good
+  - mingw64-gstreamer1-plugins-good
   - gstreamer1-vaapi
   - vlc

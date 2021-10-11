@@ -2,7 +2,7 @@
 clock-show-date=true
 clock-show-seconds=true
 clock-show-weekday=false
-icon-theme='Papirus-Dark'
+icon-theme='Faba'
 monospace-font-name='JetBrains Mono Medium 11'
 toolkit-accessibility=false
 

@@ -34,9 +34,6 @@
     groups: microk8s
     append: yes
 
-- name: Microk8s stop
-  shell: source /etc/profile.d/snapd.sh && microk8s.stop
-
 - name: Microk8s start
   shell: source /etc/profile.d/snapd.sh && microk8s.start
 
@@ -66,7 +63,7 @@
     creates: "/opt/kubeval/{{ kubeval.version }}/linux-amd64"
 
 - name: Install Krew
-  script: krew.sh
+  script: install-krew.sh
   become: yes
   become_user: "{{ ansible_env.SUDO_USER }}"
   args:
@@ -97,7 +94,7 @@
 
 - name: Install Helm CLI
   unarchive:
-    src: https://storage.googleapis.com/kubernetes-helm/helm-{{ helm.version }}-linux-amd64.tar.gz
+    src: https://get.helm.sh/helm-{{ helm.version }}-linux-amd64.tar.gz
     remote_src: yes
     dest: "/opt/helm/{{ helm.version }}"
     creates: "/opt/helm/{{ helm.version }}/linux-amd64"

@@ -1,20 +1,8 @@
 ---
-- name: Remove unwanted extensions
-  dnf:
-    state: absent
-    name:
-      - gnome-shell-extension-topicons-plus
-      - gnome-shell-extension-background-logo
-      - gnome-shell-extension-apps-menu
-      - gnome-shell-extension-horizontal-workspaces
-      - gnome-shell-extension-launch-new-instance
-      - gnome-shell-extension-window-list
-
 - name: Install extensions
   dnf:
     state: installed
     name:
-      - gnome-shell-extension-no-topleft-hot-corner
       - gnome-shell-extension-user-theme
       - gnome-shell-extension-places-menu
 
@@ -47,7 +35,7 @@
 
 - name: Install JetBrains Mono font
   unarchive:
-    src: https://download.jetbrains.com/fonts/JetBrainsMono-1.0.3.zip
+    src: https://download-cdn.jetbrains.com/fonts/JetBrainsMono-2.242.zip
     remote_src: yes
     dest: /home/{{ ansible_env.USERNAME }}/.local/share/fonts
     owner: '{{ ansible_env.USERNAME }}'
@@ -62,19 +50,12 @@
     creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:user501254:Arc.repo
     warn: false
 
-- name: Enable Fedora Copr for dirkdavidis/papirus-icon-theme
-  command: "dnf copr enable -y dirkdavidis/papirus-icon-theme"
-  args:
-    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:dirkdavidis:papirus-icon-theme.repo
-    warn: false
-
 - name: Install theme packages
   dnf:
     state: installed
     name:
       - arc-icon-theme
       - arc-theme-solid
-      - papirus-icon-theme
 
 - name: gsettings set {{ item }}
   command: "gsettings set {{ item }}"

@@ -18,29 +18,18 @@ code_dirs:
   - talks
 
 helm:
-  version: v2.14.3
+  version: v2.17.0
 
 kubeval:
-  version: "0.15.0"
+  version: "v0.16.1"
 
 krew:
-  version: "v0.3.4"
+  version: "v0.4.1"
 
 terraform_012:
   version: 0.12.26
 
-composer:
-  version: "1.10.6"
-  sha384sum: e0012edf3e80b6978849f5eff0d4b4e4c79ff1609dd1e613307e16318854d24ae64f26d17af3ef0bf7cfb710ca74755a
-
-docker_compose:
-  version: 1.25.5
-  sha256sum: 1cb7ecccc17c8d5f1888f9e2b3211b07e35c86d0010a6c0f711fe65ef5b69528
-
 lazydocker:
-  version: 0.9.1
-
-gh_cli:
-  version: 0.9.0
+  version: 0.12
 
 ansible_python_interpreter: "/usr/bin/python3"

@@ -34,4 +34,4 @@
     force: no
   ignore_errors: yes
   with_items:
-    - "{{ Code_repos.repos | default([]) }}"
+    - "{{ code_repos.repos | default([]) }}"

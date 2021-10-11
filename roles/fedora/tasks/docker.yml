@@ -28,6 +28,7 @@
       - docker-ce
       - docker-ce-cli
       - containerd.io
+      - docker-compose
 
 - group: name=docker system=yes
 
@@ -52,19 +53,11 @@
     state: started
 
 - name: Configure firewall for Docker network
-  shell: "firewall-cmd --permanent --zone=libvirt --add-masquerade && firewall-cmd --permanent --zone=libvirt --add-interface=docker0 && firewall-cmd --set-default-zone=libvirt && firewall-cmd --reload"
+  shell: "firewall-cmd --permanent --zone=docker --add-masquerade && firewall-cmd --permanent --zone=docker --add-interface=docker0 && firewall-cmd --set-default-zone=public && firewall-cmd --reload"
 
 - copy: src=docker-daemon.json
     dest=/etc/docker/daemon.json
     owner=root group=root mode=644
-
-- name: Install Docker Compose
-  get_url:
-    dest: /usr/local/bin/docker-compose
-    url: "https://github.com/docker/compose/releases/download/{{ docker_compose.version }}/docker-compose-Linux-x86_64"
-    force: yes
-    sha256sum: "{{ docker_compose.sha256sum }}"
-    mode: a+x
 
 - name: Creates "/opt/lazydocker/{{ lazydocker.version }}" directory
   file:
