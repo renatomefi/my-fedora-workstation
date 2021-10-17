@@ -44,19 +44,6 @@
 - name: Refresh system fonts
   command: "fc-cache -f -v"
 
-- name: Enable Fedora Copr for user501254/Arc
-  command: "dnf copr enable -y user501254/Arc"
-  args:
-    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:user501254:Arc.repo
-    warn: false
-
-- name: Install theme packages
-  dnf:
-    state: installed
-    name:
-      - arc-icon-theme
-      - arc-theme-solid
-
 - name: gsettings set {{ item }}
   command: "gsettings set {{ item }}"
   become: yes

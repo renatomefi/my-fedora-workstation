@@ -26,7 +26,7 @@ automatic-location=false
 locations=[<(uint32 2, <('Amsterdam', 'EHAM', true, [(0.91280719879303418, 0.083194033496160544)], [(0.91367986341903151, 0.085812027374152042)])>)>]
 
 [org/gnome/shell/world-clocks]
-locations=[<(uint32 2, <('San Francisco', 'KOAK', true, [(0.65832848982162007, -2.133408063190589)], [(0.659296885757089, -2.1366218601153339)])>)>, <(uint32 2, <('Edmonton', 'CYED', true, [(0.93666003772138751, -1.9803669304139968)], [(0.93462381444296339, -1.9809487010135638)])>)>, <(uint32 2, <('Ottawa', 'CYOW', true, [(0.79092504517986117, -1.3206324731601402)], [(0.7926703744318554, -1.3212142437597076)])>)>, <(uint32 2, <('New York', 'KNYC', true, [(0.71180344078725644, -1.2909618758762367)], [(0.71059804659265924, -1.2916478949920254)])>)>, <(uint32 2, <('Brasília', 'SBBR', true, [(-0.27692558046753113, -0.83659448230485101)], [(-0.27547112778867422, -0.83630360573171358)])>)>, <(uint32 2, <('Coordinated Universal Time (UTC)', '@UTC', false, @a(dd) [], @a(dd) [])>)>]
+locations=[<(uint32 2, <('San Francisco', 'KOAK', false, [(0.65832848982162007, -2.133408063190589)], [(0.65832848982162007, -2.133408063190589)])>)>, <(uint32 2, <('Edmonton', 'CYED', true, [(0.93666003772138751, -1.9803669304139968)], [(0.93462381444296339, -1.9809487010135638)])>)>, <(uint32 2, <('Ottawa', 'CYOW', true, [(0.79092504517986117, -1.3206324731601402)], [(0.7926703744318554, -1.3212142437597076)])>)>, <(uint32 2, <('New York', 'KNYC', true, [(0.71180344078725644, -1.2909618758762367)], [(0.71059804659265924, -1.2916478949920254)])>)>, <(uint32 2, <('Brasília', 'SBBR', true, [(-0.27692558046753113, -0.83659448230485101)], [(-0.27547112778867422, -0.83630360573171358)])>)>, <(uint32 2, <('London', 'EGWU', false, [(0.89971722940307675, -0.007272211034407213)], [(0.89971722940307675, -0.007272211034407213)])>)>, <(uint32 2, <('Coordinated Universal Time (UTC)', '@UTC', false, @a(dd) [], @a(dd) [])>)>]
 
 [org/gnome/desktop/input-sources]
 current=uint32 0
@@ -45,11 +45,6 @@ two-finger-scrolling-enabled=true
 [org/gnome/gedit/plugins/filebrowser/nautilus]
 click-policy='double'
 confirm-trash=true
-
-[org/gnome/nautilus/list-view]
-default-visible-columns=['name', 'size', 'owner', 'date_modified', 'starred']
-default-zoom-level='standard'
-use-tree-view=true
 
 [org/gnome/nautilus/list-view]
 default-visible-columns=['name', 'size', 'owner', 'date_modified', 'starred']
