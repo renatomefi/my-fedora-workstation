@@ -19,5 +19,5 @@
     name:
       - adoptopenjdk-8-hotspot
       - adoptopenjdk-11-hotspot
-      - adoptopenjdk-13-hotspot
       - adoptopenjdk-14-hotspot
+      - adoptopenjdk-15-hotspot

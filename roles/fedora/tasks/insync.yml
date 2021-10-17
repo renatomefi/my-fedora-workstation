@@ -1,5 +1,5 @@
 ---
-- name: Install insync
-  dnf:
-    name: https://d2t3ff60b2tol4.cloudfront.net/builds/insync-3.1.7.40811-fc30.x86_64.rpm
-    state: present
+# - name: Install insync
+#   dnf:
+#     name: https://d2t3ff60b2tol4.cloudfront.net/builds/insync-3.3.2.40903-fc30.x86_64.rpm
+#     state: present

@@ -64,6 +64,6 @@ dnf_packages:
 
 rpmfusion_packages:
   - gstreamer1-libav
-  - mingw64-gstreamer-plugins-good
+  - mingw64-gstreamer1-plugins-good
   - gstreamer1-vaapi
   - vlc

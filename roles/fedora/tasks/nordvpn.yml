@@ -1,9 +1,9 @@
 ---
 
-- name: Install NordVPN repo
-  dnf:
-    name: https://repo.nordvpn.com/yum/nordvpn/centos/noarch/Packages/n/nordvpn-release-1.0.0-1.noarch.rpm
-    state: latest
+# - name: Install NordVPN repo
+#   dnf:
+#     name: https://repo.nordvpn.com/yum/nordvpn/centos/noarch/Packages/n/nordvpn-release-1.0.0-1.noarch.rpm
+#     state: latest
 
 - name: Install openvpn packages
   dnf:

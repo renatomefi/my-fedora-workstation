@@ -16,7 +16,7 @@
     - zshrc
     - oh-my-zsh
     - oh-my-zsh-custom
-    - directory-history
+    - directory_history
     - gnupg
     - gitconfig
     - gitignore_global

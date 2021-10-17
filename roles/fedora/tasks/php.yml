@@ -1,16 +1,8 @@
 ---
-- name: Install composer
-  get_url:
-    dest: /usr/local/bin/composer
-    url: "https://getcomposer.org/download/{{ composer.version }}/composer.phar"
-    sha256sum: "{{ composer.sha256sum }}"
-    force: yes
-    mode: a+x
-
-- name: Install Remi repo
-  dnf:
-    name: "http://rpms.remirepo.net/fedora/remi-release-{{ ansible_distribution_major_version }}.rpm"
-    state: present
+# - name: Install Remi repo
+#   dnf:
+#     name: "http://rpms.remirepo.net/fedora/remi-release-{{ ansible_distribution_major_version }}.rpm"
+#     state: present
 
 - name: Enable Remi repo
   command: dnf config-manager --set-enabled remi
@@ -21,6 +13,20 @@
   dnf:
     state: present
     name:
+      - php80
+      - php80-runtime
+      - php80-php-mbstring
+      - php80-php-xml
+      - php80-php-cli
+      - php80-php-pdo
+      - php80-php-json
+      - php80-php-intl
+      - php80-php-pecl-apcu
+      - php80-php-pecl-yaml
+      - php80-php-pecl-xdebug
+      - php80-php-pecl-rdkafka
+      - php80-php-pecl-imagick
+      - php80-php-pecl-rdkafka
       - php74
       - php74-runtime
       - php74-php-mbstring
@@ -61,3 +67,11 @@
       - php72-php-pecl-xdebug
       - php72-php-pecl-rdkafka
       - php72-php-pecl-imagick
+
+- name: Install composer
+  get_url:
+    dest: /usr/local/bin/composer
+    url: "https://getcomposer.org/download/{{ composer.version }}/composer.phar"
+    # sha384sum: "{{ composer.sha384sum }}"
+    force: yes
+    mode: a+x

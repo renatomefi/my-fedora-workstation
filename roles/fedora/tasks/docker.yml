@@ -14,22 +14,22 @@
       - docker-engine-selinux
       - docker-engine
 
-- rpm_key: key=https://download.docker.com/linux/fedora/gpg
-    state=present
+# - rpm_key: key=https://download.docker.com/linux/fedora/gpg
+#     state=present
 
-- copy: src=docker-ce.repo 
-    dest=/etc/yum.repos.d/docker-ce.repo
-    owner=root group=root mode=644
+# - copy: src=docker-ce.repo 
+#     dest=/etc/yum.repos.d/docker-ce.repo
+#     owner=root group=root mode=644
 
-- name: Install Docker CE
-  dnf:
-    state: latest
-    name:
-      - docker-ce
-      - docker-ce-cli
-      - containerd.io
+# - name: Install Docker CE
+#   dnf:
+#     state: latest
+#     name:
+#       - docker-ce
+#       - docker-ce-cli
+#       - containerd.io
 
-- group: name=docker system=yes
+# - group: name=docker system=yes
 
 - user: name=docker group=docker create_home=no system=yes shell=/sbin/nologin
 
@@ -51,20 +51,20 @@
     daemon_reload: yes
     state: started
 
-- name: Configure firewall for Docker network
-  shell: "firewall-cmd --permanent --zone=libvirt --add-masquerade && firewall-cmd --permanent --zone=libvirt --add-interface=docker0 && firewall-cmd --set-default-zone=libvirt && firewall-cmd --reload"
+# - name: Configure firewall for Docker network
+#   shell: "firewall-cmd --permanent --zone=libvirt --add-masquerade && firewall-cmd --permanent --zone=libvirt --add-interface=docker0 && firewall-cmd --set-default-zone=libvirt && firewall-cmd --reload"
 
-- copy: src=docker-daemon.json
-    dest=/etc/docker/daemon.json
-    owner=root group=root mode=644
+# - copy: src=docker-daemon.json
+#     dest=/etc/docker/daemon.json
+#     owner=root group=root mode=644
 
-- name: Install Docker Compose
-  get_url:
-    dest: /usr/local/bin/docker-compose
-    url: "https://github.com/docker/compose/releases/download/{{ docker_compose.version }}/docker-compose-Linux-x86_64"
-    force: yes
-    sha256sum: "{{ docker_compose.sha256sum }}"
-    mode: a+x
+# - name: Install Docker Compose
+#   get_url:
+#     dest: /usr/local/bin/docker-compose
+#     url: "https://github.com/docker/compose/releases/download/{{ docker_compose.version }}/docker-compose-Linux-x86_64"
+#     force: yes
+#     sha256sum: "{{ docker_compose.sha256sum }}"
+#     mode: a+x
 
 - name: Creates "/opt/lazydocker/{{ lazydocker.version }}" directory
   file:
@@ -74,7 +74,8 @@
 
 - name: Install Lazydocker
   unarchive:
-    src: https://github.com/jesseduffield/lazydocker/releases/download/v{{ lazydocker.version }}/lazydocker_{{ lazydocker.version }}_Linux_x86_64.tar.gz
+    src: https://github.com/jesseduffield/lazydocker/releases/download/v0.10/lazydocker_0.10_Linux_x86_64.tar.gz
+    # src: https://github.com/jesseduffield/lazydocker/releases/download/v{{ lazydocker.version }}/lazydocker_{{ lazydocker.version }}_Linux_x86_64.tar.gz
     remote_src: yes
     dest: "/opt/lazydocker/{{ lazydocker.version }}"
     creates: "/opt/lazydocker/{{ lazydocker.version }}/lazydocker"

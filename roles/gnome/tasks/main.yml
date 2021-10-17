@@ -14,7 +14,7 @@
   dnf:
     state: installed
     name:
-      - gnome-shell-extension-no-topleft-hot-corner
+      # - gnome-shell-extension-no-topleft-hot-corner
       - gnome-shell-extension-user-theme
       - gnome-shell-extension-places-menu
 

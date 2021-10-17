@@ -16,15 +16,15 @@
     insertafter: EOF
     line: /usr/bin/neofetch
 
-- name: Add rpmfusion free
-  dnf:
-    name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
-    state: present
+# - name: Add rpmfusion free
+#   dnf:
+#     name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
+#     state: present
 
-- name: Add rpmfusion nonfree
-  dnf:
-    name: "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm"
-    state: present
+# - name: Add rpmfusion nonfree
+#   dnf:
+#     name: "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm"
+#     state: present
 
 - name: Update and upgrade system
   dnf: name=* state=latest
