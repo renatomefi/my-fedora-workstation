@@ -54,15 +54,26 @@
 - name: Install Snap packages
   snap:
     classic: false
-    name:
-      - 1password
-      - spotify
-      - zoom-client
-      - teams
+    name: '{{ item }}'
+  with_items:
+    - 1password
 
 - name: Install Snap packages on Classic
   snap:
     classic: true
-    name:
-      - slack
-      - postman
+    name: '{{ item }}'
+  with_items:
+    - postman
+
+- name: Install Flatpak packages
+  flatpak:
+    name: '{{ item }}'
+    state: present
+  with_items:
+    - com.slack.Slack
+    - com.spotify.Client
+    - com.microsoft.Teams
+    - us.zoom.Zoom
+  tags:
+    - third-party
+    - flatpak
